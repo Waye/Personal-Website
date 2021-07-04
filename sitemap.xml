@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://weiyi-hu.com/tags/apache-kafka/</loc>
+    <lastmod>2021-07-04T19:43:00+00:00</lastmod>
+  </url><url>
     <loc>https://weiyi-hu.com/categories/</loc>
     <lastmod>2021-07-04T19:43:00+00:00</lastmod>
   </url><url>
@@ -12,9 +15,6 @@
     <lastmod>2021-07-04T19:43:00+00:00</lastmod>
   </url><url>
     <loc>https://weiyi-hu.com/2021/07/04/Apache-Kafka-Review/</loc>
-    <lastmod>2021-07-04T19:43:00+00:00</lastmod>
-  </url><url>
-    <loc>https://weiyi-hu.com/tags/kafka/</loc>
     <lastmod>2021-07-04T19:43:00+00:00</lastmod>
   </url><url>
     <loc>https://weiyi-hu.com/post/</loc>
