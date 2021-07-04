@@ -163,8 +163,8 @@
                             Java
                         </a>
                         
-                        <a class="tag" href="/tags/js" title="JS">
-                            JS
+                        <a class="tag" href="/tags/full-stack-js" title="Full Stack JS">
+                            Full Stack JS
                         </a>
                         
                         <a class="tag" href="/tags/kafka" title="Kafka">
@@ -228,11 +228,11 @@
                 
                 <h1 id="overall-learning">overall learning</h1>
 <p>First of all, really appreciate the firm gave me the opportunity learning and working during the pandemic. It is
-a unique experience not only for the abnormal situation but also it is my first yearly long internship. After this, 
-I will graduate.<br>
+a unique experience not only under the abnormal situation but also it is my first yearly long internship. After this, 
+I will graduate and step into society.<br>
 What I learned from Moneris? Working for the Canada largest fintech company specialized in payment really widely opens my
 sight to a new area. And during my life at Moneris, I have been impacted by how e-commerce saved small and local business.<br>
-Also, daily stand up, collaborated work and demo enhanced my communication skills. One of the biggest adventage working in Moneris, specially at my team, was that if you have any idea on a new project including framework you want to try. The manager always encouraged you to try, I have been working on various projects with different frameworks. So overall, I feel fulfilled,satisfied and rewarded.</p>
+Also, daily stand up, collaborated work and demo enhanced my communication skills. One of the biggest adventage working in Moneris, specially at my team, was that if you have any idea on a new project including framework you want to try. The manager always encouraged you to do, I have been working on various projects with different frameworks. So overall, I feel fulfilled,satisfied and rewarded.</p>
 <h1 id="daily-life">daily life</h1>
 <p>We had 9:30 AM daily stand up meeting. Each of us from the same team had to give a brief talk about what we had done yesterday, and what we would do today. Some big announcements from the company would also be shared at the meeting by Director.<br>
 Then we rested for several minutes, waited for new project, demo or called to colleagues for the collaborate projects we had been woking on. We have colleages all around Canada. So it was pretty cool talking about different news, weathers at different areas.<br>
@@ -249,8 +249,8 @@ Let&rsquo;s start to see how I arrange the project.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">
 test-site-backend
 |
-C:.
-
+C:
+|
     api.js
 
     config.js
@@ -269,27 +269,9 @@ No subfolders exist
 
 test-site-frontend
 |
-C:.
+C:
 
-|   App.css
-
-|   App.js
-
-|   App.test.js
-
-|   index.css
-
-|   index.js
-
-|   logo.svg
-
-|   serviceWorker.js
-
-|   setupTests.js
-
-|   tree.txt
-
-|  
+|
 
 +---components
 
@@ -325,7 +307,7 @@ C:.
 
 parameter-site-backend
 |
-C:.
+C:
 
     api.js
 
@@ -341,21 +323,6 @@ parameter-site-frontend
 |
 C:.
 
-|   App.js
-
-|   App.test.js
-
-|   index.css
-
-|   index.js
-
-|   logo.svg
-
-|   serviceWorker.js
-
-|   setupTests.js
-
-|   tree.txt
 
 |  
 
@@ -374,19 +341,67 @@ C:.
 <span style="color:#f1fa8c">\-</span>--lib
 
         generateUrl.js
-</code></pre></div><p>parameter-site-frontend<br>
-parameter-site-backend<br>
-test-site-frontend<br>
-test-site-backend\</p>
+</code></pre></div><p>parameter-site</p>
+<ul>
+<li>react class</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#ff79c6">class</span> A <span style="color:#ff79c6">extends</span> ract.component{
+    <span style="color:#ff79c6">this</span>.state<span style="color:#ff79c6">=</span>{
+        <span style="color:#6272a4">//initialize the variables..
+</span><span style="color:#6272a4"></span>        a<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>;
+    };
+
+    <span style="color:#6272a4">// bind event handler without bind cannot find this class, will return undefined
+</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">// https://medium.com/shoutem/react-to-bind-or-not-to-bind-7bf58327e22a
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">this</span>.aChange<span style="color:#ff79c6">=</span><span style="color:#ff79c6">this</span>.achange.bind(<span style="color:#ff79c6">this</span>);
+    aChange(e){
+        thid.setState({a<span style="color:#ff79c6">:</span>e.target.value})
+    }
+
+    <span style="color:#ff79c6">async</span> componentDidMount(){
+        <span style="color:#6272a4">//see details below
+</span><span style="color:#6272a4"></span>        fetch get .....
+        set a<span style="color:#ff79c6">:</span>......
+    }
+
+    render(){
+        <span style="color:#ff79c6">return</span> (
+            <span style="color:#ff79c6">&lt;</span>select
+            value<span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">this</span>.state.a}
+            onChange<span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">this</span>.aChange}
+            <span style="color:#ff79c6">&gt;</span>
+        )
+    }
+}
+</code></pre></div><ul>
+<li>backend(api.js/router.get&quot;/xxx&quot;(connect sql=&gt;return json)=&gt;config.js/frontend.buildpath=path.join)=&gt;
+frontend(offlinxParam.js/componentDidMount(fetch&quot;api/xxx&quot; get)=&gt;setstate from json)\</li>
+<li>frontend form action post=&gt;
+backend(post/test-site(redirect to test-site))</li>
+<li>cookies store information passed to test-site</li>
+</ul>
+<p>test-site</p>
+<ul>
+<li>pixel-site tracking: img url with window.href.href, document.referrer and cookies' data. put all of those into header.js</li>
+<li>Link and Route Switch from &ldquo;react-router-dom&rdquo; create dynmic pages</li>
+<li>tabs and Tab-list with three payments method portals</li>
+<li>payments methods have page indirect(form+post), xml requests-cors problems(use proxy to send request ,send xml at backends,request(url,function(error, response, body){})).</li>
+<li>frontend(reponse.json) fetch.post json. Backend req.parameters make xml format send.</li>
+</ul>
+<p>Improvement</p>
+<ul>
+<li>I should use react-hook to improve coding efficiency.</li>
+</ul>
 <h2 id="processors-test-tool">Processors test tool</h2>
 <p>Working on different kafka and avro projects, including message encryption batchevent API switch ..etc.
 I want to introduce batch event API switch.
 The test tool is used for testing data validation of different processors, it is a huge project. I just worked and tested on small
 part of this. 
-Batch event API switch dealt with message commitment. Normal message from offset commited single by single which cost lots of time
-batch event API can commit messgae batch by batch Which means commit the bundle of message togethrer. So that it increases the efficiency.\</p>
+Batch event API switch dealt with Consumer Batch message commitment. Normal message from offset commited single by single which cost lots of time
+batch event API can commit messgae batch by batch Which means commit the bundle of message togethrer. So that it increases the efficiency.</p>
 <ul>
-<li>talk about that later.</li>
+<li>ConsumerRecord=&gt;ConsumerRecords</li>
+<li>Read my other <a href="https://weiyi-hu.com/2021/07/04/Apache-Kafka-Review/">blog</a> for more Kafak Review.</li>
 </ul>
 <h2 id="batchpinload">BatchPinLoad</h2>
 <p>Been used for batch load of customer numbers and renew their pins. With filesystem(out input csv file), rest-template,HttpEntity(Spring Boot) and logger4j2.xml</p>
@@ -401,6 +416,11 @@ batch event API can commit messgae batch by batch Which means commit the bundle 
                 <hr>
                 <ul class="pager">
                     
+                    
+                    <li class="next">
+                        <a href="/2021/07/04/Apache-Kafka-Review/" data-toggle="tooltip" data-placement="top" title="Java Apache Kafak Study">Next
+                            Post &rarr;</a>
+                    </li>
                     
                 </ul>
 
