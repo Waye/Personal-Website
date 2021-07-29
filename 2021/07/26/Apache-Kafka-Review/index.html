@@ -206,12 +206,12 @@
                 </header>
                 <nav id="TableOfContents">
   <ul>
-    <li><a href="#kafka-theory">Kafka Theory</a></li>
+    <li><a href="#fundamental-kafka-theory">Fundamental Kafka Theory</a></li>
     <li><a href="#projects">Projects</a></li>
   </ul>
 </nav>
                 
-                <h1 id="kafka-theory">Kafka Theory</h1>
+                <h1 id="fundamental-kafka-theory">Fundamental Kafka Theory</h1>
 <p>=&gt;:send to</p>
 <ol>
 <li>data sources =&gt;topics =&gt; partition =&gt; offsets
@@ -258,7 +258,43 @@
 </li>
 </ul>
 </li>
-<li>consumers</li>
+<li>consumers and consumers group
+<ul>
+<li>consumer read data from topics</li>
+<li>data read in order from 0 to the end of offsets size.</li>
+<li>each consumer within a group read from exclusive partitions.
+
+  <img src="/img/kafka-learn/8.png" alt="">
+
+</li>
+<li>More consumers than partitions, some consumers will be inactive.
+
+  <img src="/img/kafka-learn/9.png" alt="">
+
+</li>
+</ul>
+</li>
+<li>consumer offsets &amp; Delivery Semantics
+<ul>
+<li>kafka stores the offsets(announcement of size or something) where a consumer group has been reading.</li>
+<li>so if consumer die, it can read back from where is left off(committed offset).</li>
+<li>delivery semantics for consumers: 
+
+  <img src="/img/kafka-learn/10.png" alt="">
+
+</li>
+</ul>
+</li>
+<li>ZooKeeper
+<ul>
+<li>zookeeper manages brokers, and it helps in performing leader election for partitions.</li>
+<li>zookeeper has a leader (handle writes) and the rest of servers are followers (handle reads), kafak metadata in zookeeper.
+
+  <img src="/img/kafka-learn/11.png" alt="">
+
+</li>
+</ul>
+</li>
 </ol>
 <h1 id="projects">Projects</h1>
 
