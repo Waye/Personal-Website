@@ -6,14 +6,24 @@
     <description>Recent content on Henry&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Jul 2021 19:43:00 +0000</lastBuildDate><atom:link href="https://weiyi-hu.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Jul 2021 11:11:00 +0000</lastBuildDate><atom:link href="https://weiyi-hu.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SickKids Tech - DevOps</title>
+      <link>https://weiyi-hu.com/2021/07/28/SickKids-Tech-DevOps/</link>
+      <pubDate>Wed, 28 Jul 2021 11:11:00 +0000</pubDate>
+      
+      <guid>https://weiyi-hu.com/2021/07/28/SickKids-Tech-DevOps/</guid>
+      <description>Docker  Docker is a container technology, a tool for creating and managing containers.  Docker/container vs Virtual Machine/OPS  problems with VMs: wastes of space and tends to be slow. containers: separate containers(small packages instead of &amp;ldquo;whole machines&amp;rdquo;) run in Docker Engine in OS Built-in.(It&amp;rsquo;s light weight).  Course overall Foundation Images and Containers  Images are blueprints/templates of containers.  docker ps -a docker run -it node run vs CMD: CMD runs based on the image created.</description>
+    </item>
+    
     <item>
       <title>Java Apache Kafak Study</title>
-      <link>https://weiyi-hu.com/2021/07/04/Apache-Kafka-Review/</link>
-      <pubDate>Sun, 04 Jul 2021 19:43:00 +0000</pubDate>
+      <link>https://weiyi-hu.com/2021/07/26/Apache-Kafka-Review/</link>
+      <pubDate>Sun, 04 Jul 2021 21:05:00 +0000</pubDate>
       
-      <guid>https://weiyi-hu.com/2021/07/04/Apache-Kafka-Review/</guid>
-      <description></description>
+      <guid>https://weiyi-hu.com/2021/07/26/Apache-Kafka-Review/</guid>
+      <description>Kafka Theory =&amp;gt;:send to
+ data sources =&amp;gt;topics =&amp;gt; partition =&amp;gt; offsets  data is randomly sent to the partition unless the key is provided   brokers and topics  kafka cluster is composed of multiple brokers(servers) broker contains topics&#39; partitions connect to any broker, then connect to whole cluster   topics replication  if one broker is down, another broker can serve the data.  one broker can be leader for a given partition.</description>
     </item>
     
     <item>
