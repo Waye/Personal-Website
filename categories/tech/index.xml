@@ -6,16 +6,7 @@
     <description>Recent content in Tech on Henry&#39;s</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 28 Jul 2021 11:11:00 +0000</lastBuildDate><atom:link href="https://weiyi-hu.com/categories/tech/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>SickKids Tech - DevOps</title>
-      <link>https://weiyi-hu.com/2021/07/28/SickKids-Tech-DevOps/</link>
-      <pubDate>Wed, 28 Jul 2021 11:11:00 +0000</pubDate>
-      
-      <guid>https://weiyi-hu.com/2021/07/28/SickKids-Tech-DevOps/</guid>
-      <description>Docker  Docker is a container technology, a tool for creating and managing containers.  Docker/container vs Virtual Machine/OPS  problems with VMs: wastes of space and tends to be slow. containers: separate containers(small packages instead of &amp;ldquo;whole machines&amp;rdquo;) run in Docker Engine in OS Built-in.(It&amp;rsquo;s light weight).  Course overall Foundation Images and Containers  Images are blueprints/templates of containers.  docker ps -a docker run -it node run vs CMD: CMD runs based on the image created.</description>
-    </item>
-    
+    <lastBuildDate>Mon, 26 Jul 2021 21:05:00 +0000</lastBuildDate><atom:link href="https://weiyi-hu.com/categories/tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java Apache Kafak Study</title>
       <link>https://weiyi-hu.com/2021/07/26/Apache-Kafka-Review/</link>
