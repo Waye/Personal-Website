@@ -299,29 +299,59 @@
 </ol>
 <h1 id="cli">CLI</h1>
 <ul>
-<li>kafka-topics &ndash;zookeeper 0.0.0.0:2181 &ndash;topic first_topic &ndash;create &ndash;partitions 3 &ndash;replication-factor 1</li>
-<li>kafka-topics &ndash;zookeeper 0.0.0.0:2181 &ndash;list</li>
-<li>kafka-topics &ndash;zookeeper 0.0.0.0:2181 &ndash;topic first_topic &ndash;describe</li>
-<li>kafka-topics &ndash;zookeeper 0.0.0.0:2181 &ndash;topic second_topic &ndash;delete</li>
-<li>kafka-console-producer &ndash;broker-list 0.0.0.0:9092 &ndash;topic first_topic</li>
-<li>kafka-console-producer &ndash;broker-list 0.0.0.0:9092 &ndash;topic first_topic &ndash;producer-property acks=all</li>
-<li>kafka-console-consumer &ndash;bootstrap-server 0.0.0.0:9092 &ndash;topic first_topic</li>
-<li>kafka-console-consumer &ndash;bootstrap-server 0.0.0.0:9092 &ndash;topic first_topic &ndash;from-beginning</li>
-<li>kafka-console-consumer &ndash;bootstrap-server 0.0.0.0:9092 &ndash;topic first_topic &ndash;group my-first-application</li>
-<li>kafka-consumer-groups &ndash;bootstrap-server localhost:9092 &ndash;list</li>
-<li>kafka-consumer-groups &ndash;bootstrap-server localhost:9092 &ndash;describe &ndash;group my-first-application</li>
-<li>kafka-consumer-groups &ndash;bootstrap-server localhost:9092 &ndash;group my-first-applicatio &ndash;reset-offsets &ndash;to-earliest &ndash;execute &ndash;topic first_topic</li>
-<li>kafka-consumer-groups &ndash;bootstrap-server localhost:9092 &ndash;group my-first-applicatio &ndash;reset-offsets &ndash;shift-by -2 &ndash;execute &ndash;topic first_topic</li>
-<li>The CLI has many options, but here are the other that are most commonly used:</li>
+<li>
+<p>kafka-topics &ndash;zookeeper 0.0.0.0:2181 &ndash;topic first_topic &ndash;create &ndash;partitions 3 &ndash;replication-factor 1</p>
+</li>
+<li>
+<p>kafka-topics &ndash;zookeeper 0.0.0.0:2181 &ndash;list</p>
+</li>
+<li>
+<p>kafka-topics &ndash;zookeeper 0.0.0.0:2181 &ndash;topic first_topic &ndash;describe</p>
+</li>
+<li>
+<p>kafka-topics &ndash;zookeeper 0.0.0.0:2181 &ndash;topic second_topic &ndash;delete</p>
+</li>
+<li>
+<p>kafka-console-producer &ndash;broker-list 0.0.0.0:9092 &ndash;topic first_topic</p>
+</li>
+<li>
+<p>kafka-console-producer &ndash;broker-list 0.0.0.0:9092 &ndash;topic first_topic &ndash;producer-property acks=all</p>
+</li>
+<li>
+<p>kafka-console-consumer &ndash;bootstrap-server 0.0.0.0:9092 &ndash;topic first_topic</p>
+</li>
+<li>
+<p>kafka-console-consumer &ndash;bootstrap-server 0.0.0.0:9092 &ndash;topic first_topic &ndash;from-beginning</p>
+</li>
+<li>
+<p>kafka-console-consumer &ndash;bootstrap-server 0.0.0.0:9092 &ndash;topic first_topic &ndash;group my-first-application</p>
+</li>
+<li>
+<p>kafka-consumer-groups &ndash;bootstrap-server localhost:9092 &ndash;list</p>
+</li>
+<li>
+<p>kafka-consumer-groups &ndash;bootstrap-server localhost:9092 &ndash;describe &ndash;group my-first-application</p>
+</li>
+<li>
+<p>kafka-consumer-groups &ndash;bootstrap-server localhost:9092 &ndash;group my-first-applicatio &ndash;reset-offsets &ndash;to-earliest &ndash;execute &ndash;topic first_topic</p>
+</li>
+<li>
+<p>kafka-consumer-groups &ndash;bootstrap-server localhost:9092 &ndash;group my-first-applicatio &ndash;reset-offsets &ndash;shift-by -2 &ndash;execute &ndash;topic first_topic</p>
+</li>
+<li>
+<p>The CLI has many options, but here are the other that are most commonly used:</p>
+<ul>
+<li>Producer with keys</li>
 </ul>
-<p>Producer with keys</p>
-<p>kafka-console-producer &ndash;broker-list 127.0.0.1:9092 &ndash;topic first_topic &ndash;property parse.key=true &ndash;property key.separator=,</p>
-<blockquote>
-<p>key,value
-another key,another value
-Consumer with keys</p>
-</blockquote>
-<p>kafka-console-consumer &ndash;bootstrap-server 127.0.0.1:9092 &ndash;topic first_topic &ndash;from-beginning &ndash;property print.key=true &ndash;property key.separator=,</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    kafka-console-producer --broker-list 127.0.0.1:9092 --topic first_topic --property parse.key<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">true</span> --property key.separator<span style="color:#ff79c6">=</span>,
+    <span style="color:#f1fa8c">&#34;&gt; key,value&#34;</span>
+    <span style="color:#f1fa8c">&#34;&gt; another key,another value&#34;</span>
+</code></pre></div><ul>
+<li>Consumer with keys</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    kafka-console-consumer --bootstrap-server 127.0.0.1:9092 --topic first_topic --from-beginning --property print.key<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">true</span> --property key.separator<span style="color:#ff79c6">=</span>,
+</code></pre></div></li>
+</ul>
 <h1 id="projects">Projects</h1>
 
 
