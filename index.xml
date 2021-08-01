@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Henry&#39;s</title>
+    <title>想～简简单单爱～</title>
     <link>https://weiyi-hu.com/</link>
-    <description>Recent content on Henry&#39;s</description>
+    <description>Recent content on 想～简简单单爱～</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Jul 2021 21:05:00 +0000</lastBuildDate><atom:link href="https://weiyi-hu.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://weiyi-hu.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About ElasticSearch</title>
+      <link>https://weiyi-hu.com/2021/08/01/SickKids-Tech-ElasticSearch/</link>
+      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://weiyi-hu.com/2021/08/01/SickKids-Tech-ElasticSearch/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Java Apache Kafak Study</title>
       <link>https://weiyi-hu.com/2021/07/26/Apache-Kafka-Review/</link>

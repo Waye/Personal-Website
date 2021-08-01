@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tech on Henry&#39;s</title>
+    <title>Tech on 想～简简单单爱～</title>
     <link>https://weiyi-hu.com/categories/tech/</link>
-    <description>Recent content in Tech on Henry&#39;s</description>
+    <description>Recent content in Tech on 想～简简单单爱～</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Jul 2021 21:05:00 +0000</lastBuildDate><atom:link href="https://weiyi-hu.com/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://weiyi-hu.com/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About ElasticSearch</title>
+      <link>https://weiyi-hu.com/2021/08/01/SickKids-Tech-ElasticSearch/</link>
+      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://weiyi-hu.com/2021/08/01/SickKids-Tech-ElasticSearch/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Java Apache Kafak Study</title>
       <link>https://weiyi-hu.com/2021/07/26/Apache-Kafka-Review/</link>
@@ -15,6 +24,16 @@
       <guid>https://weiyi-hu.com/2021/07/26/Apache-Kafka-Review/</guid>
       <description>Fundamental Kafka Theory =&amp;gt;:send to
  data sources =&amp;gt;topics =&amp;gt; partition =&amp;gt; offsets  data is randomly sent to the partition unless the key is provided   brokers and topics  kafka cluster is composed of multiple brokers(servers) broker contains topics&#39; partitions connect to any broker, then connect to whole cluster   topics replication  if one broker is down, another broker can serve the data.  one broker can be leader for a given partition.</description>
+    </item>
+    
+    <item>
+      <title>Be Payment Ready</title>
+      <link>https://weiyi-hu.com/2021/07/01/my-intern-at-moneris/</link>
+      <pubDate>Thu, 01 Jul 2021 22:51:00 +0000</pubDate>
+      
+      <guid>https://weiyi-hu.com/2021/07/01/my-intern-at-moneris/</guid>
+      <description>overall learning First of all, really appreciate the firm gave me the opportunity learning and working during the pandemic. It is a unique experience not only under the abnormal situation but also it is my first yearly long internship. After this, I will graduate and step into society.
+What I learned from Moneris? Working for the Canada largest fintech company specialized in payment really widely opens my sight to a new area.</description>
     </item>
     
   </channel>
