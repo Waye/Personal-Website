@@ -208,6 +208,7 @@
   <ul>
     <li><a href="#fundamental-kafka-theory">Fundamental Kafka Theory</a></li>
     <li><a href="#cli">CLI</a></li>
+    <li><a href="#java-kafka-101">Java Kafka 101</a></li>
     <li><a href="#projects">Projects</a></li>
   </ul>
 </nav>
@@ -300,6 +301,12 @@
 <h1 id="cli">CLI</h1>
 <ul>
 <li>
+<p>zookeeper-server-start config/zookeeper.properties</p>
+</li>
+<li>
+<p>kafka-server-start config/server.properties</p>
+</li>
+<li>
 <p>kafka-topics &ndash;zookeeper 0.0.0.0:2181 &ndash;topic first_topic &ndash;create &ndash;partitions 3 &ndash;replication-factor 1</p>
 </li>
 <li>
@@ -352,6 +359,8 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    kafka-console-consumer --bootstrap-server 127.0.0.1:9092 --topic first_topic --from-beginning --property print.key<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">true</span> --property key.separator<span style="color:#ff79c6">=</span>,
 </code></pre></div></li>
 </ul>
+<h1 id="java-kafka-101">Java Kafka 101</h1>
+<p><a href="https://github.com/Waye/kafka-learn">source</a></p>
 <h1 id="projects">Projects</h1>
 
 
