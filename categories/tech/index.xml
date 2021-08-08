@@ -22,7 +22,7 @@
       <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://weiyi-hu.com/2021/08/01/SickKids-Tech-ElasticSearch/</guid>
-      <description>What is Elastic-Search What is Redis Implementation </description>
+      <description>What is Elastic-Search  Elasticsearch is document oriented, meaning that it stores entire objects or documents. It not only stores them, but also indexes the contents of each document in order to make them searchable. In Elasticsearch, you index, search, sort, and filter documents—​not rows of columnar data. This is a fundamentally different way of thinking about data and is one of the reasons Elasticsearch can perform complex full-text search. The act of storing data in Elasticsearch is called indexing.</description>
     </item>
     
     <item>
