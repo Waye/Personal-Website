@@ -6,22 +6,49 @@
     <description>Recent content in Tags on ;)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 02 Aug 2021 20:36:00 +0000</lastBuildDate><atom:link href="https://weiyi-hu.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Aug 2021 16:22:00 +0000</lastBuildDate><atom:link href="https://weiyi-hu.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>GraphQL</title>
-      <link>https://weiyi-hu.com/tags/graphql/</link>
-      <pubDate>Mon, 02 Aug 2021 20:36:00 +0000</pubDate>
+      <title>Azure</title>
+      <link>https://weiyi-hu.com/tags/azure/</link>
+      <pubDate>Sun, 15 Aug 2021 16:22:00 +0000</pubDate>
       
-      <guid>https://weiyi-hu.com/tags/graphql/</guid>
+      <guid>https://weiyi-hu.com/tags/azure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>https://weiyi-hu.com/tags/docker/</link>
+      <pubDate>Sun, 15 Aug 2021 16:22:00 +0000</pubDate>
+      
+      <guid>https://weiyi-hu.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>https://weiyi-hu.com/tags/kubernetes/</link>
+      <pubDate>Sun, 15 Aug 2021 16:22:00 +0000</pubDate>
+      
+      <guid>https://weiyi-hu.com/tags/kubernetes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SickKids</title>
       <link>https://weiyi-hu.com/tags/sickkids/</link>
-      <pubDate>Mon, 02 Aug 2021 20:36:00 +0000</pubDate>
+      <pubDate>Sun, 15 Aug 2021 16:22:00 +0000</pubDate>
       
       <guid>https://weiyi-hu.com/tags/sickkids/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GraphQL</title>
+      <link>https://weiyi-hu.com/tags/graphql/</link>
+      <pubDate>Mon, 02 Aug 2021 20:36:00 +0000</pubDate>
+      
+      <guid>https://weiyi-hu.com/tags/graphql/</guid>
       <description></description>
     </item>
     
@@ -67,6 +94,15 @@
       <pubDate>Mon, 26 Jul 2021 21:05:00 +0000</pubDate>
       
       <guid>https://weiyi-hu.com/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Moneris</title>
+      <link>https://weiyi-hu.com/tags/moneris/</link>
+      <pubDate>Thu, 01 Jul 2021 22:51:00 +0000</pubDate>
+      
+      <guid>https://weiyi-hu.com/tags/moneris/</guid>
       <description></description>
     </item>
     

@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="Search" />
-    <meta property="og:title" content="Search" />
-    <meta property="twitter:title" content="Search" />
+    <meta name="title" content=" DevOps kubernetes Docker on Azure" />
+    <meta property="og:title" content=" DevOps kubernetes Docker on Azure" />
+    <meta property="twitter:title" content=" DevOps kubernetes Docker on Azure" />
     
 
     
-    <meta name="description" content="">
-    <meta property="og:description" content="" />
-    <meta property="twitter:description" content="" />
+    <meta name="description" content="Somethings with Docker and Kubernetes and our set-up flow on Azure">
+    <meta property="og:description" content="Somethings with Docker and Kubernetes and our set-up flow on Azure" />
+    <meta property="twitter:description" content="Somethings with Docker and Kubernetes and our set-up flow on Azure" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Search-胡萝卜维生素一的博客</title>
+    <title> DevOps kubernetes Docker on Azure-胡萝卜维生素一的博客</title>
 
-    <link rel="canonical" href="/tags/search/">
+    <link rel="canonical" href="/2021/08/15/SickKids-Tech-DevOps/">
 
     <link rel="stylesheet" href="/css/iDisqus.min.css"/>
 
@@ -142,14 +142,49 @@
 
 
 
-<header class="intro-header" style="background-image: url('https://media.tacdn.com/media/attractions-content--1x-1/0b/e2/b8/77.jpg')">
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://logz.io/wp-content/uploads/2018/05/docker_vs._kubernetes_-_main-1280x720.jpg')
+    }
+</style>
+<header class="intro-header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>;) </h1>
-                    
-		    <span class="subheading">Philippians 4:6-7</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/docker" title="Docker">
+                            Docker
+                        </a>
+                        
+                        <a class="tag" href="/tags/kubernetes" title="Kubernetes">
+                            Kubernetes
+                        </a>
+                        
+                        <a class="tag" href="/tags/azure" title="Azure">
+                            Azure
+                        </a>
+                        
+                        <a class="tag" href="/tags/sickkids" title="SickKids">
+                            SickKids
+                        </a>
+                        
+                    </div>
+                    <h1> DevOps kubernetes Docker on Azure</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                            huweiyi
+                         
+                        on 
+                        Sunday, August 15, 2021
+                        
+                        
+                        
+                    </span>
                 </div>
             </div>
         </div>
@@ -158,218 +193,148 @@
 
 
 
-  
-<div class="container">
-    <div class="row">
-        
-        
-   	    <div class="
-            col-lg-8 col-lg-offset-1
-            col-md-8 col-md-offset-1
-            col-sm-12
-            col-xs-12
-            post-container
-        ">
-            
 
-<div class="post-preview">
-    <a href="https://weiyi-hu.com/2021/08/01/SickKids-Tech-ElasticSearch/">
-        <h2 class="post-title">
-            ElasticSearch&#43;Redis for general text search
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            Somethings I learned and implemented to our search engine for IMHP app
-        
-        </div>
-    </a>
-    <p class="post-meta">
-    Posted by huweiyi Sunday, August 1, 2021
-    
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="https://weiyi-hu.com/2021/07/26/Apache-Kafka-Review/">
-        <h2 class="post-title">
-            Java Apache Kafak Study
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            Learning notes and codes are from Stephane Maarek&#39;s courses
-        
-        </div>
-    </a>
-    <p class="post-meta">
-    Posted by huweiyi Monday, July 26, 2021
-    
-    
-    </p>
-
-</div>
-<hr>
-
+<article>
+    <div class="container">
+        <div class="row">
 
             
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#docker">Docker</a>
+      <ul>
+        <li><a href="#dockercontainer-vs-virtual-machineops">Docker/container vs Virtual Machine/OPS</a></li>
+      </ul>
+    </li>
+    <li><a href="#course-overall">Course overall</a></li>
+    <li><a href="#foundation">Foundation</a>
+      <ul>
+        <li><a href="#images-and-containers">Images and Containers</a></li>
+      </ul>
+    </li>
+    <li><a href="#kubernetes">kubernetes</a></li>
+    <li><a href="#azure">Azure</a></li>
+  </ul>
+</nav>
+                
+                <h1 id="docker">Docker</h1>
+<ul>
+<li>Docker is a container technology, a tool for creating and managing containers.</li>
+</ul>
+<h2 id="dockercontainer-vs-virtual-machineops">Docker/container vs Virtual Machine/OPS</h2>
+<ul>
+<li>problems with VMs: wastes of space and tends to be slow.</li>
+<li>containers: separate containers(small packages instead of &ldquo;whole machines&rdquo;) run in Docker Engine in OS Built-in.(It&rsquo;s light weight).</li>
+</ul>
+<h1 id="course-overall">Course overall</h1>
+<p>
+  <img src="/img/kafka-learn/2.png" alt="">
+
+</p>
+<h1 id="foundation">Foundation</h1>
+<h2 id="images-and-containers">Images and Containers</h2>
+<ul>
+<li>Images are blueprints/templates of containers.
+
+  <img src="/img/kafka-learn/3.png" alt="">
+
+</li>
+<li>docker ps -a</li>
+<li>docker run -it node</li>
+<li>run vs CMD: CMD runs based on the image created.</li>
+<li>docker build =&gt; docker run -p 3000:80 xxxxxx(auto created ID) =&gt; docker stop</li>
+<li>docker build . (build new images)</li>
+<li>docker &ndash;help</li>
+<li>docker start xxxxx(container name)</li>
+<li>docker attach CONTAINER (-d detach mode)</li>
+<li>docker rm</li>
+<li>docker images</li>
+<li>docker rmi</li>
+</ul>
+<h1 id="kubernetes">kubernetes</h1>
+<h1 id="azure">Azure</h1>
 
 
+                
 
-       	</div>
-        
-
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-    
-    <section>
-        <hr class="hidden-sm hidden-xs">
-        <h5>FEATURED TAGS</h5>
-        <div class="tags">
-            
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-                    <a href="/tags/sickkids" title="sickkids">
-                        sickkids
-                    </a>
-               
-            
-               
-            
-               
-            
-        </div>
-    </section>
-    
-
-    
-	
-    <section class="visible-md visible-lg">
-	<hr><h5><a href="/top/about">ABOUT ME</a></h5>
-        <div class="short-about">
-            
-            <a href="/top/about">
-               <img src="https://sm.mashable.com/mashable_in/feature/d/dogecoin-e/dogecoin-everything-you-need-to-know-about-the-cryptocurrenc_4ssb.jpg" alt="avatar" style="cursor: pointer" />
-            </a>
-            
-            
-                <p>Henry 加油! 冲冲冲!</p>
-            
-           
-           <ul class="list-inline">
-               
-               <li>
-                   <a href='/tags/search/index.xml' rel="alternate" type="application/rss+xml" title=";)" >
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               <li>
-                   <a href="https://twitter.com/weiyi_hoo">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               
-               
-               <li>
-                   <a target="_blank" href="https://www.facebook.com/weiyi.hu.3/">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               
-               <li>
-                   <a target="_blank" href="https://github.com/Waye">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               
-               
-               <li>
-                   <a target="_blank" href="https://www.linkedin.com/in/weiyihenryhu/">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               
-            
-            
-               
-               
-               
-               <li>
-                   <a target="_blank" href="https://www.instagram.com/who_is_way_e/">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2021/08/02/SickKids-Tech-GraphQL/" data-toggle="tooltip" data-placement="top" title="Graphql &#43; Relational Database for Dashboard ">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
                 </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
             </div>
-    </section>
-	
-    
-    
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
 
-    
-    
-</div>
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/sickkids" title="sickkids">
+                            sickkids
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
 
-	</div>
-</div>
-
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
 
 
 
@@ -381,7 +346,7 @@
                 <ul class="list-inline text-center">
                    
                    <li>
-                       <a href='/tags/search/index.xml' rel="alternate" type="application/rss+xml" title=";)" >
+                       <a href='' rel="alternate" type="application/rss+xml" title=";)" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

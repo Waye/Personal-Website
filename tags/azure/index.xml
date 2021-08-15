@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Azure on Henry&#39;s</title>
+    <title>Azure on ;)</title>
     <link>https://weiyi-hu.com/tags/azure/</link>
-    <description>Recent content in Azure on Henry&#39;s</description>
+    <description>Recent content in Azure on ;)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 28 Jul 2021 11:11:00 +0000</lastBuildDate><atom:link href="https://weiyi-hu.com/tags/azure/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Aug 2021 16:22:00 +0000</lastBuildDate><atom:link href="https://weiyi-hu.com/tags/azure/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>SickKids Tech - DevOps</title>
-      <link>https://weiyi-hu.com/2021/07/28/SickKids-Tech-DevOps/</link>
-      <pubDate>Wed, 28 Jul 2021 11:11:00 +0000</pubDate>
+      <title> DevOps kubernetes Docker on Azure</title>
+      <link>https://weiyi-hu.com/2021/08/15/SickKids-Tech-DevOps/</link>
+      <pubDate>Sun, 15 Aug 2021 16:22:00 +0000</pubDate>
       
-      <guid>https://weiyi-hu.com/2021/07/28/SickKids-Tech-DevOps/</guid>
+      <guid>https://weiyi-hu.com/2021/08/15/SickKids-Tech-DevOps/</guid>
       <description>Docker  Docker is a container technology, a tool for creating and managing containers.  Docker/container vs Virtual Machine/OPS  problems with VMs: wastes of space and tends to be slow. containers: separate containers(small packages instead of &amp;ldquo;whole machines&amp;rdquo;) run in Docker Engine in OS Built-in.(It&amp;rsquo;s light weight).  Course overall Foundation Images and Containers  Images are blueprints/templates of containers.  docker ps -a docker run -it node run vs CMD: CMD runs based on the image created.</description>
     </item>
     
