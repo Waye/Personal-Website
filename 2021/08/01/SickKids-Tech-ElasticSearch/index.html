@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta property="twitter:title" content="" />
+    <meta name="title" content="ElasticSearch&#43;Redis for general text search" />
+    <meta property="og:title" content="ElasticSearch&#43;Redis for general text search" />
+    <meta property="twitter:title" content="ElasticSearch&#43;Redis for general text search" />
     
 
     
-    <meta name="description" content="">
-    <meta property="og:description" content="" />
-    <meta property="twitter:description" content="" />
+    <meta name="description" content="Somethings I learned and implemented to our search engine for IMHP app">
+    <meta property="og:description" content="Somethings I learned and implemented to our search engine for IMHP app" />
+    <meta property="twitter:description" content="Somethings I learned and implemented to our search engine for IMHP app" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Tags-E-Carotene&#39;s Blog</title>
+    <title>ElasticSearch&#43;Redis for general text search-E-Carotene&#39;s Blog</title>
 
-    <link rel="canonical" href="/tags/">
+    <link rel="canonical" href="/2021/08/01/SickKids-Tech-ElasticSearch/">
 
     <link rel="stylesheet" href="/css/iDisqus.min.css"/>
 
@@ -142,14 +142,49 @@
 
 
 
-<header class="intro-header" style="background-image: url('https://wallpaperaccess.com/full/2245411.jpg')">
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://www.knowi.com/wp-content/uploads/2020/03/elastic-search-intro-image-1024x512.jpg')
+    }
+</style>
+<header class="intro-header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1> </h1>
-                    
-		    <span class="subheading">ほら言ったじゃない？何やっても、上手くいかない時は、神様がくれた、お休みだと思って、焦らないロングバケーション。私ね、何かあるとねマニキュアとか、ペディキュアとか、一生懸命塗るの。そうすると、なんか、落ち着くんだよねー。瀬名君は？そういうのない？</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/search" title="Search">
+                            Search
+                        </a>
+                        
+                        <a class="tag" href="/tags/js" title="JS">
+                            JS
+                        </a>
+                        
+                        <a class="tag" href="/tags/sql" title="SQL">
+                            SQL
+                        </a>
+                        
+                        <a class="tag" href="/tags/sickkids" title="SickKids">
+                            SickKids
+                        </a>
+                        
+                    </div>
+                    <h1>ElasticSearch&#43;Redis for general text search</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                            huweiyi
+                         
+                        on 
+                        Sunday, August 1, 2021
+                        
+                        
+                        
+                    </span>
                 </div>
             </div>
         </div>
@@ -162,13 +197,56 @@
 <article>
     <div class="container">
         <div class="row">
+
             
             <div class="
-                col-lg-8 col-lg-offset-2
+                col-lg-11 col-lg-offset-1
                 col-md-10 col-md-offset-1
                 post-container">
 
-         	
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-is-elastic-search">What is Elastic-Search</a></li>
+    <li><a href="#what-is-redis">What is Redis</a></li>
+    <li><a href="#implementation">Implementation</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav>
+                
+                <h1 id="what-is-elastic-search">What is Elastic-Search</h1>
+<ul>
+<li>Elasticsearch is document oriented, meaning that it stores entire objects or documents. It not only stores them, but also indexes the contents of each document in order to make them searchable. In Elasticsearch, you index, search, sort, and filter documents—​not rows of columnar data. This is a fundamentally different way of thinking about data and is one of the reasons Elasticsearch can perform complex full-text search.</li>
+<li>The act of storing data in Elasticsearch is called indexing.</li>
+</ul>
+<h1 id="what-is-redis">What is Redis</h1>
+<h1 id="implementation">Implementation</h1>
+<h1 id="reference">Reference</h1>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/index.html">Elasticsearch: The Definitive Guide</a><br>
+<a href="https://redislabs.com/ebook/redis-in-action/">redis-in-action</a></p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2021/07/26/Apache-Kafka-Review/" data-toggle="tooltip" data-placement="top" title="Java Apache Kafak Study">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2021/08/02/SickKids-Tech-GraphQL/" data-toggle="tooltip" data-placement="top" title="Graphql &#43; Relational Database for Dashboard ">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
                 
 <div id="disqus-comment"></div>
 
@@ -177,7 +255,7 @@
             </div>
             
             <div class="
-                col-lg-8 col-lg-offset-2
+                col-lg-11 col-lg-offset-1
                 col-md-10 col-md-offset-1
                 sidebar-container">
 
@@ -209,7 +287,7 @@
                         
                         
                         <a href="/tags/sickkids" title="sickkids">
-                        sickkids
+                            sickkids
                         </a>
                         
                         
@@ -238,7 +316,7 @@
                 <ul class="list-inline text-center">
                    
                    <li>
-                       <a href='/tags/index.xml' rel="alternate" type="application/rss+xml" title="" >
+                       <a href='' rel="alternate" type="application/rss+xml" title="" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
