@@ -3,63 +3,45 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://weiyi-hu.com/</loc>
-    <lastmod>2021-08-15T16:22:00+00:00</lastmod>
+    <lastmod>2021-07-28T01:12:00+00:00</lastmod>
   </url><url>
-    <loc>https://weiyi-hu.com/2021/08/15/SickKids-Tech-DevOps/</loc>
-    <lastmod>2021-08-15T16:22:00+00:00</lastmod>
-  </url><url>
-    <loc>https://weiyi-hu.com/tags/azure/</loc>
-    <lastmod>2021-08-15T16:22:00+00:00</lastmod>
+    <loc>https://weiyi-hu.com/tags/algorithmn/</loc>
+    <lastmod>2021-07-28T01:12:00+00:00</lastmod>
   </url><url>
     <loc>https://weiyi-hu.com/categories/</loc>
-    <lastmod>2021-08-15T16:22:00+00:00</lastmod>
+    <lastmod>2021-07-28T01:12:00+00:00</lastmod>
   </url><url>
-    <loc>https://weiyi-hu.com/tags/docker/</loc>
-    <lastmod>2021-08-15T16:22:00+00:00</lastmod>
+    <loc>https://weiyi-hu.com/tags/data-structure/</loc>
+    <lastmod>2021-07-28T01:12:00+00:00</lastmod>
   </url><url>
-    <loc>https://weiyi-hu.com/tags/kubernetes/</loc>
-    <lastmod>2021-08-15T16:22:00+00:00</lastmod>
-  </url><url>
-    <loc>https://weiyi-hu.com/categories/learn/</loc>
-    <lastmod>2021-08-15T16:22:00+00:00</lastmod>
-  </url><url>
-    <loc>https://weiyi-hu.com/post/</loc>
-    <lastmod>2021-08-15T16:22:00+00:00</lastmod>
-  </url><url>
-    <loc>https://weiyi-hu.com/tags/sickkids/</loc>
-    <lastmod>2021-08-15T16:22:00+00:00</lastmod>
-  </url><url>
-    <loc>https://weiyi-hu.com/tags/</loc>
-    <lastmod>2021-08-15T16:22:00+00:00</lastmod>
-  </url><url>
-    <loc>https://weiyi-hu.com/tags/graphql/</loc>
-    <lastmod>2021-08-02T20:36:00+00:00</lastmod>
-  </url><url>
-    <loc>https://weiyi-hu.com/2021/08/02/SickKids-Tech-GraphQL/</loc>
-    <lastmod>2021-08-02T20:36:00+00:00</lastmod>
-  </url><url>
-    <loc>https://weiyi-hu.com/tags/sql/</loc>
-    <lastmod>2021-08-02T20:36:00+00:00</lastmod>
-  </url><url>
-    <loc>https://weiyi-hu.com/2021/08/01/SickKids-Tech-ElasticSearch/</loc>
-    <lastmod>2021-08-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://weiyi-hu.com/tags/js/</loc>
-    <lastmod>2021-08-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://weiyi-hu.com/tags/search/</loc>
-    <lastmod>2021-08-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://weiyi-hu.com/tags/apache-kafka/</loc>
-    <lastmod>2021-07-26T21:05:00+00:00</lastmod>
+    <loc>https://weiyi-hu.com/categories/interview/</loc>
+    <lastmod>2021-07-28T01:12:00+00:00</lastmod>
   </url><url>
     <loc>https://weiyi-hu.com/tags/java/</loc>
-    <lastmod>2021-07-26T21:05:00+00:00</lastmod>
+    <lastmod>2021-07-28T01:12:00+00:00</lastmod>
   </url><url>
-    <loc>https://weiyi-hu.com/2021/07/26/Apache-Kafka-Review/</loc>
-    <lastmod>2021-07-26T21:05:00+00:00</lastmod>
+    <loc>https://weiyi-hu.com/categories/learn/</loc>
+    <lastmod>2021-07-28T01:12:00+00:00</lastmod>
+  </url><url>
+    <loc>https://weiyi-hu.com/post/</loc>
+    <lastmod>2021-07-28T01:12:00+00:00</lastmod>
+  </url><url>
+    <loc>https://weiyi-hu.com/tags/python/</loc>
+    <lastmod>2021-07-28T01:12:00+00:00</lastmod>
+  </url><url>
+    <loc>https://weiyi-hu.com/2022/07/28/Java-Python-notes/</loc>
+    <lastmod>2021-07-28T01:12:00+00:00</lastmod>
+  </url><url>
+    <loc>https://weiyi-hu.com/tags/</loc>
+    <lastmod>2021-07-28T01:12:00+00:00</lastmod>
+  </url><url>
+    <loc>https://weiyi-hu.com/tags/apache-kafka/</loc>
+    <lastmod>2021-07-01T22:51:00+00:00</lastmod>
   </url><url>
     <loc>https://weiyi-hu.com/2021/07/01/my-intern-at-moneris/</loc>
+    <lastmod>2021-07-01T22:51:00+00:00</lastmod>
+  </url><url>
+    <loc>https://weiyi-hu.com/tags/js/</loc>
     <lastmod>2021-07-01T22:51:00+00:00</lastmod>
   </url><url>
     <loc>https://weiyi-hu.com/tags/moneris/</loc>
