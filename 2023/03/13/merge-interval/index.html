@@ -231,14 +231,15 @@ if (!doNotTrack) {
                 post-container">
 
                 
-                <h1 id="conditions">conditions</h1>
+                <h1 id="conditions">Conditions</h1>
 <p>
   <img src="https://miro.medium.com/v2/resize:fit:928/1*bSy7l77pyVJUIJXqoviToQ.png" alt="conditions">
 
 </p>
 <h1 id="questions">Questions</h1>
 <ul>
-<li><a href="https://leetcode.com/problems/merge-intervals/">56</a>
+<li>
+<h3 id="56httpsleetcodecomproblemsmerge-intervals"><a href="https://leetcode.com/problems/merge-intervals/">56</a></h3>
 <ul>
 <li>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
@@ -264,36 +265,339 @@ if (!doNotTrack) {
 Arrays.sort(intervals, (a, b) -&gt; Integer.compare(a[0], b[0]));</li>
 </ul>
 </li>
-<li><a href="https://leetcode.com/problems/Insert-Interval/">57</a>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">
+<li>
+<h3 id="57httpsleetcodecomproblemsinsert-interval"><a href="https://leetcode.com/problems/Insert-Interval/">57</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+     <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">int</span><span style="color:#ff79c6">[][]</span> <span style="color:#50fa7b">insert</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">[][]</span> intervals<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]</span> newInterval<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         List<span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]&gt;</span> result <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ArrayList<span style="color:#ff79c6">&lt;&gt;();</span>
+     <span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span>
+     <span style="color:#8be9fd">int</span> n <span style="color:#ff79c6">=</span> intervals<span style="color:#ff79c6">.</span><span style="color:#50fa7b">length</span><span style="color:#ff79c6">;</span>
+
+     <span style="color:#6272a4">// add all intervals before newInterval
+</span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">(</span>i <span style="color:#ff79c6">&lt;</span> n <span style="color:#ff79c6">&amp;&amp;</span> intervals<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">][</span>1<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">&lt;</span> newInterval<span style="color:#ff79c6">[</span>0<span style="color:#ff79c6">])</span> <span style="color:#ff79c6">{</span>
+         result<span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span>intervals<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">]);</span>
+         i<span style="color:#ff79c6">++;</span>
+     <span style="color:#ff79c6">}</span>
+
+     <span style="color:#6272a4">// merge overlapping intervals
+</span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">(</span>i <span style="color:#ff79c6">&lt;</span> n <span style="color:#ff79c6">&amp;&amp;</span> intervals<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">][</span>0<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">&lt;=</span> newInterval<span style="color:#ff79c6">[</span>1<span style="color:#ff79c6">])</span> <span style="color:#ff79c6">{</span>
+         newInterval<span style="color:#ff79c6">[</span>0<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> Math<span style="color:#ff79c6">.</span><span style="color:#50fa7b">min</span><span style="color:#ff79c6">(</span>newInterval<span style="color:#ff79c6">[</span>0<span style="color:#ff79c6">],</span> intervals<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">][</span>0<span style="color:#ff79c6">]);</span>
+         newInterval<span style="color:#ff79c6">[</span>1<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> Math<span style="color:#ff79c6">.</span><span style="color:#50fa7b">max</span><span style="color:#ff79c6">(</span>newInterval<span style="color:#ff79c6">[</span>1<span style="color:#ff79c6">],</span> intervals<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">][</span>1<span style="color:#ff79c6">]);</span>
+         i<span style="color:#ff79c6">++;</span>
+     <span style="color:#ff79c6">}</span>
+
+     <span style="color:#6272a4">// add merged interval
+</span><span style="color:#6272a4"></span>     result<span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span>newInterval<span style="color:#ff79c6">);</span>
+
+     <span style="color:#6272a4">// add remaining intervals
+</span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">(</span>i <span style="color:#ff79c6">&lt;</span> n<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         result<span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span>intervals<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">]);</span>
+         i<span style="color:#ff79c6">++;</span>
+     <span style="color:#ff79c6">}</span>
+
+     <span style="color:#6272a4">// convert list to array
+</span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">return</span> result<span style="color:#ff79c6">.</span><span style="color:#50fa7b">toArray</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> <span style="color:#8be9fd">int</span><span style="color:#ff79c6">[</span>result<span style="color:#ff79c6">.</span><span style="color:#50fa7b">size</span><span style="color:#ff79c6">()][</span>2<span style="color:#ff79c6">]);</span>
+     <span style="color:#ff79c6">}</span>
+ <span style="color:#ff79c6">}</span>
 </code></pre></div></li>
-<li><a href="https://leetcode.com/problems/Meeting-Rooms">252</a>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">
+</ul>
+</li>
+<li>
+<h3 id="252httpsleetcodecomproblemsmeeting-rooms"><a href="https://leetcode.com/problems/Meeting-Rooms">252</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">boolean</span> <span style="color:#50fa7b">canAttendMeetings</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">[][]</span> intervals<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+        <span style="color:#6272a4">// Sort the intervals in ascending order of start time
+</span><span style="color:#6272a4"></span>        Arrays<span style="color:#ff79c6">.</span><span style="color:#50fa7b">sort</span><span style="color:#ff79c6">(</span>intervals<span style="color:#ff79c6">,</span> <span style="color:#ff79c6">(</span>a<span style="color:#ff79c6">,</span> b<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">-&gt;</span> a<span style="color:#ff79c6">[</span>0<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">-</span> b<span style="color:#ff79c6">[</span>0<span style="color:#ff79c6">]);</span>
+        <span style="color:#6272a4">// Check if any two consecutive meetings overlap
+</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span> i <span style="color:#ff79c6">&lt;</span> intervals<span style="color:#ff79c6">.</span><span style="color:#50fa7b">length</span> <span style="color:#ff79c6">-</span> 1<span style="color:#ff79c6">;</span> i<span style="color:#ff79c6">++)</span> <span style="color:#ff79c6">{</span>
+            <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>intervals<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">][</span>1<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">&gt;</span> intervals<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">+</span>1<span style="color:#ff79c6">][</span>0<span style="color:#ff79c6">])</span> <span style="color:#ff79c6">{</span>
+                <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">false</span><span style="color:#ff79c6">;</span>
+            <span style="color:#ff79c6">}</span>
+        <span style="color:#ff79c6">}</span>
+
+        <span style="color:#6272a4">// If no overlapping meetings found, return true
+</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span><span style="color:#ff79c6">;</span>
+    <span style="color:#ff79c6">}</span>
+
 </code></pre></div></li>
-<li><a href="https://leetcode.com/problems/Meeting-Rooms-II">253</a>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">
+</ul>
+</li>
+<li>
+<h3 id="253httpsleetcodecomproblemsmeeting-rooms-ii"><a href="https://leetcode.com/problems/Meeting-Rooms-II">253</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">minMeetingRooms</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">[][]</span> intervals<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+        <span style="color:#6272a4">// Sort the intervals in ascending order of start time
+</span><span style="color:#6272a4"></span>    Arrays<span style="color:#ff79c6">.</span><span style="color:#50fa7b">sort</span><span style="color:#ff79c6">(</span>intervals<span style="color:#ff79c6">,</span> <span style="color:#ff79c6">(</span>a<span style="color:#ff79c6">,</span> b<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">-&gt;</span> a<span style="color:#ff79c6">[</span>0<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">-</span> b<span style="color:#ff79c6">[</span>0<span style="color:#ff79c6">]);</span>
+
+    <span style="color:#6272a4">// Use a priority queue to keep track of end times
+</span><span style="color:#6272a4"></span>    PriorityQueue<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">&gt;</span> endTimes <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> PriorityQueue<span style="color:#ff79c6">&lt;&gt;();</span>
+
+    <span style="color:#6272a4">// Add the end time of the first meeting to the priority queue
+</span><span style="color:#6272a4"></span>    endTimes<span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span>intervals<span style="color:#ff79c6">[</span>0<span style="color:#ff79c6">][</span>1<span style="color:#ff79c6">]);</span>
+
+    <span style="color:#6272a4">// Iterate over the remaining meetings and update the priority queue
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> 1<span style="color:#ff79c6">;</span> i <span style="color:#ff79c6">&lt;</span> intervals<span style="color:#ff79c6">.</span><span style="color:#50fa7b">length</span><span style="color:#ff79c6">;</span> i<span style="color:#ff79c6">++)</span> <span style="color:#ff79c6">{</span>
+        <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>intervals<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">][</span>0<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">&gt;=</span> endTimes<span style="color:#ff79c6">.</span><span style="color:#50fa7b">peek</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
+            <span style="color:#6272a4">// If the start time of the current meeting is later than or equal to the earliest ending meeting,
+</span><span style="color:#6272a4"></span>            <span style="color:#6272a4">// remove the earliest ending meeting from the priority queue and add the end time of the current meeting
+</span><span style="color:#6272a4"></span>            endTimes<span style="color:#ff79c6">.</span><span style="color:#50fa7b">poll</span><span style="color:#ff79c6">();</span>
+        <span style="color:#ff79c6">}</span>
+        endTimes<span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span>intervals<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">][</span>1<span style="color:#ff79c6">]);</span>
+    <span style="color:#ff79c6">}</span>
+
+    <span style="color:#6272a4">// Return the size of the priority queue, which represents the minimum number of conference rooms required
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">return</span> endTimes<span style="color:#ff79c6">.</span><span style="color:#50fa7b">size</span><span style="color:#ff79c6">();</span>
+
+
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
 </code></pre></div></li>
-<li><a href="https://leetcode.com/problems/Non-overlapping-Intervals">435</a>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">
+</ul>
+</li>
+<li>
+<h3 id="435httpsleetcodecomproblemsnon-overlapping-intervals"><a href="https://leetcode.com/problems/Non-overlapping-Intervals">435</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">eraseOverlapIntervals</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">[][]</span> intervals<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+        <span style="color:#6272a4">// Sort the intervals in ascending order of end time
+</span><span style="color:#6272a4"></span>    Arrays<span style="color:#ff79c6">.</span><span style="color:#50fa7b">sort</span><span style="color:#ff79c6">(</span>intervals<span style="color:#ff79c6">,</span> <span style="color:#ff79c6">(</span>a<span style="color:#ff79c6">,</span> b<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">-&gt;</span> a<span style="color:#ff79c6">[</span>1<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">-</span> b<span style="color:#ff79c6">[</span>1<span style="color:#ff79c6">]);</span>
+
+    <span style="color:#8be9fd">int</span> count <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span>
+    <span style="color:#8be9fd">int</span> end <span style="color:#ff79c6">=</span> Integer<span style="color:#ff79c6">.</span><span style="color:#50fa7b">MIN_VALUE</span><span style="color:#ff79c6">;</span>
+
+    <span style="color:#6272a4">// Iterate over the intervals and count the number of overlapping intervals
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]</span> interval <span style="color:#ff79c6">:</span> intervals<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+        <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>interval<span style="color:#ff79c6">[</span>0<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">&gt;=</span> end<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+            <span style="color:#6272a4">// If the start time of the current interval is later than or equal to the end time of the previous interval,
+</span><span style="color:#6272a4"></span>            <span style="color:#6272a4">// update the end time and increment the count of non-overlapping intervals
+</span><span style="color:#6272a4"></span>            end <span style="color:#ff79c6">=</span> interval<span style="color:#ff79c6">[</span>1<span style="color:#ff79c6">];</span>
+            count<span style="color:#ff79c6">++;</span>
+        <span style="color:#ff79c6">}</span>
+    <span style="color:#ff79c6">}</span>
+
+    <span style="color:#6272a4">// Return the number of removed intervals, which is the difference between the total number of intervals and the count of non-overlapping intervals
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">return</span> intervals<span style="color:#ff79c6">.</span><span style="color:#50fa7b">length</span> <span style="color:#ff79c6">-</span> count<span style="color:#ff79c6">;</span>
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
 </code></pre></div></li>
-<li><a href="https://leetcode.com/problems/Employee-Free-Time">759</a>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">
+</ul>
+</li>
+<li>
+<h3 id="759httpsleetcodecomproblemsemployee-free-time-"><a href="https://leetcode.com/problems/Employee-Free-Time">759</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#6272a4">// // Definition for an Interval.
+</span><span style="color:#6272a4">// class Interval {
+</span><span style="color:#6272a4">//     public int start;
+</span><span style="color:#6272a4">//     public int end;
+</span><span style="color:#6272a4"></span>
+<span style="color:#6272a4">//     public Interval() {}
+</span><span style="color:#6272a4"></span>
+<span style="color:#6272a4">//     public Interval(int _start, int _end) {
+</span><span style="color:#6272a4">//         start = _start;
+</span><span style="color:#6272a4">//         end = _end;
+</span><span style="color:#6272a4">//     }
+</span><span style="color:#6272a4">// };
+</span><span style="color:#6272a4"></span>
+
+<span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd;font-style:italic">public</span> List<span style="color:#ff79c6">&lt;</span>Interval<span style="color:#ff79c6">&gt;</span> <span style="color:#50fa7b">employeeFreeTime</span><span style="color:#ff79c6">(</span>List<span style="color:#ff79c6">&lt;</span>List<span style="color:#ff79c6">&lt;</span>Interval<span style="color:#ff79c6">&gt;&gt;</span> schedule<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#6272a4">// Use a priority queue to keep track of the next earliest ending interval
+</span><span style="color:#6272a4"></span>        PriorityQueue<span style="color:#ff79c6">&lt;</span>Interval<span style="color:#ff79c6">&gt;</span> pq <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> PriorityQueue<span style="color:#ff79c6">&lt;&gt;((</span>a<span style="color:#ff79c6">,</span> b<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">-&gt;</span> a<span style="color:#ff79c6">.</span><span style="color:#50fa7b">start</span> <span style="color:#ff79c6">-</span> b<span style="color:#ff79c6">.</span><span style="color:#50fa7b">start</span><span style="color:#ff79c6">);</span>
+
+        <span style="color:#6272a4">// Add all intervals from all employees to the priority queue
+</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span>List<span style="color:#ff79c6">&lt;</span>Interval<span style="color:#ff79c6">&gt;</span> intervals <span style="color:#ff79c6">:</span> schedule<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+            pq<span style="color:#ff79c6">.</span><span style="color:#50fa7b">addAll</span><span style="color:#ff79c6">(</span>intervals<span style="color:#ff79c6">);</span>
+        <span style="color:#ff79c6">}</span>
+
+        List<span style="color:#ff79c6">&lt;</span>Interval<span style="color:#ff79c6">&gt;</span> result <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ArrayList<span style="color:#ff79c6">&lt;&gt;();</span>
+        Interval prev <span style="color:#ff79c6">=</span> pq<span style="color:#ff79c6">.</span><span style="color:#50fa7b">poll</span><span style="color:#ff79c6">();</span>
+
+        <span style="color:#6272a4">// Iterate over the intervals in the priority queue and find the free time intervals
+</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">(!</span>pq<span style="color:#ff79c6">.</span><span style="color:#50fa7b">isEmpty</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
+            Interval current <span style="color:#ff79c6">=</span> pq<span style="color:#ff79c6">.</span><span style="color:#50fa7b">poll</span><span style="color:#ff79c6">();</span>
+            <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>prev<span style="color:#ff79c6">.</span><span style="color:#50fa7b">end</span> <span style="color:#ff79c6">&lt;</span> current<span style="color:#ff79c6">.</span><span style="color:#50fa7b">start</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+                <span style="color:#6272a4">// If there is a gap between the end of the previous interval and the start of the current interval,
+</span><span style="color:#6272a4"></span>                <span style="color:#6272a4">// add a free time interval to the result
+</span><span style="color:#6272a4"></span>                result<span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> Interval<span style="color:#ff79c6">(</span>prev<span style="color:#ff79c6">.</span><span style="color:#50fa7b">end</span><span style="color:#ff79c6">,</span> current<span style="color:#ff79c6">.</span><span style="color:#50fa7b">start</span><span style="color:#ff79c6">));</span>
+                prev <span style="color:#ff79c6">=</span> current<span style="color:#ff79c6">;</span>
+            <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
+                <span style="color:#6272a4">// Otherwise, update the previous interval if the end time of the current interval is later
+</span><span style="color:#6272a4"></span>                <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>prev<span style="color:#ff79c6">.</span><span style="color:#50fa7b">end</span> <span style="color:#ff79c6">&lt;</span> current<span style="color:#ff79c6">.</span><span style="color:#50fa7b">end</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+                    prev<span style="color:#ff79c6">.</span><span style="color:#50fa7b">end</span> <span style="color:#ff79c6">=</span> current<span style="color:#ff79c6">.</span><span style="color:#50fa7b">end</span><span style="color:#ff79c6">;</span>
+                <span style="color:#ff79c6">}</span>
+            <span style="color:#ff79c6">}</span>
+        <span style="color:#ff79c6">}</span>
+
+        <span style="color:#ff79c6">return</span> result<span style="color:#ff79c6">;</span>  
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
 </code></pre></div></li>
-<li><a href="https://leetcode.com/problems/Intervals-Intersection">986</a>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">
+</ul>
+</li>
+<li>
+<h3 id="986httpsleetcodecomproblemsinterval-list-intersections"><a href="https://leetcode.com/problems/interval-list-intersections/">986</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">int</span><span style="color:#ff79c6">[][]</span> <span style="color:#50fa7b">intervalIntersection</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">[][]</span> firstList<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span><span style="color:#ff79c6">[][]</span> secondList<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+    List<span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]&gt;</span> result <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ArrayList<span style="color:#ff79c6">&lt;&gt;();</span>
+    <span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">,</span> j <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span>
+
+    <span style="color:#6272a4">// Iterate over both lists of intervals and find the intersections
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">(</span>i <span style="color:#ff79c6">&lt;</span> firstList<span style="color:#ff79c6">.</span><span style="color:#50fa7b">length</span> <span style="color:#ff79c6">&amp;&amp;</span> j <span style="color:#ff79c6">&lt;</span> secondList<span style="color:#ff79c6">.</span><span style="color:#50fa7b">length</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+        <span style="color:#6272a4">// Find the start and end of the intersection
+</span><span style="color:#6272a4"></span>        <span style="color:#8be9fd">int</span> start <span style="color:#ff79c6">=</span> Math<span style="color:#ff79c6">.</span><span style="color:#50fa7b">max</span><span style="color:#ff79c6">(</span>firstList<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">][</span>0<span style="color:#ff79c6">],</span> secondList<span style="color:#ff79c6">[</span>j<span style="color:#ff79c6">][</span>0<span style="color:#ff79c6">]);</span>
+        <span style="color:#8be9fd">int</span> end <span style="color:#ff79c6">=</span> Math<span style="color:#ff79c6">.</span><span style="color:#50fa7b">min</span><span style="color:#ff79c6">(</span>firstList<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">][</span>1<span style="color:#ff79c6">],</span> secondList<span style="color:#ff79c6">[</span>j<span style="color:#ff79c6">][</span>1<span style="color:#ff79c6">]);</span>
+
+        <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>start <span style="color:#ff79c6">&lt;=</span> end<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+            <span style="color:#6272a4">// If there is an intersection, add it to the result
+</span><span style="color:#6272a4"></span>            result<span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> <span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]{</span>start<span style="color:#ff79c6">,</span> end<span style="color:#ff79c6">});</span>
+        <span style="color:#ff79c6">}</span>
+
+        <span style="color:#6272a4">// Move to the next interval with the smaller end time
+</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>firstList<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">][</span>1<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">&lt;</span> secondList<span style="color:#ff79c6">[</span>j<span style="color:#ff79c6">][</span>1<span style="color:#ff79c6">])</span> <span style="color:#ff79c6">{</span>
+            i<span style="color:#ff79c6">++;</span>
+        <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
+            j<span style="color:#ff79c6">++;</span>
+        <span style="color:#ff79c6">}</span>
+    <span style="color:#ff79c6">}</span>
+
+    <span style="color:#6272a4">// Convert the result to a 2D array and return it
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">return</span> result<span style="color:#ff79c6">.</span><span style="color:#50fa7b">toArray</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> <span style="color:#8be9fd">int</span><span style="color:#ff79c6">[</span>result<span style="color:#ff79c6">.</span><span style="color:#50fa7b">size</span><span style="color:#ff79c6">()][]);</span>
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
 </code></pre></div></li>
-<li><a href="https://leetcode.com/problems/Car-Pooling">1094</a>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">
+</ul>
+</li>
+<li>
+<h3 id="1094httpsleetcodecomproblemscar-pooling"><a href="https://leetcode.com/problems/Car-Pooling">1094</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">    <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">boolean</span> <span style="color:#50fa7b">carPooling</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">[][]</span> trips<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> capacity<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+        <span style="color:#6272a4">// Create a timeline of events
+</span><span style="color:#6272a4"></span>        List<span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]&gt;</span> events <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ArrayList<span style="color:#ff79c6">&lt;&gt;();</span>
+        <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]</span> trip <span style="color:#ff79c6">:</span> trips<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+            events<span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> <span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]{</span>trip<span style="color:#ff79c6">[</span>1<span style="color:#ff79c6">],</span> trip<span style="color:#ff79c6">[</span>0<span style="color:#ff79c6">]});</span>
+            events<span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> <span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]{</span>trip<span style="color:#ff79c6">[</span>2<span style="color:#ff79c6">],</span> <span style="color:#ff79c6">-</span>trip<span style="color:#ff79c6">[</span>0<span style="color:#ff79c6">]});</span>
+            <span style="color:#6272a4">// Each trip has two events: a pickup event and a dropoff event
+</span><span style="color:#6272a4"></span>            <span style="color:#6272a4">// The pickup event adds the number of passengers to the car
+</span><span style="color:#6272a4"></span>            <span style="color:#6272a4">// The dropoff event subtracts the number of passengers from the car
+</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">}</span>
+        <span style="color:#6272a4">// Sort the events in ascending order of their locations
+</span><span style="color:#6272a4"></span>        Collections<span style="color:#ff79c6">.</span><span style="color:#50fa7b">sort</span><span style="color:#ff79c6">(</span>events<span style="color:#ff79c6">,</span> <span style="color:#ff79c6">(</span>a<span style="color:#ff79c6">,</span> b<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">-&gt;</span> a<span style="color:#ff79c6">[</span>0<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">-</span> b<span style="color:#ff79c6">[</span>0<span style="color:#ff79c6">]);</span>
+
+        <span style="color:#6272a4">// Check the number of passengers at each location
+</span><span style="color:#6272a4"></span>        <span style="color:#8be9fd">int</span> passengers <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span>
+        <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]</span> event <span style="color:#ff79c6">:</span> events<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+            passengers <span style="color:#ff79c6">+=</span> event<span style="color:#ff79c6">[</span>1<span style="color:#ff79c6">];</span>
+            <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>passengers <span style="color:#ff79c6">&gt;</span> capacity<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+                <span style="color:#6272a4">// If the number of passengers exceeds the car&#39;s capacity, return false
+</span><span style="color:#6272a4"></span>                <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">false</span><span style="color:#ff79c6">;</span>
+            <span style="color:#ff79c6">}</span>
+        <span style="color:#ff79c6">}</span>
+
+        <span style="color:#6272a4">// If the function reaches this point, all trips can be completed
+</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span><span style="color:#ff79c6">;</span>
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
 </code></pre></div></li>
-<li><a href="https://leetcode.com/problems/Corporate-Flight-Bookings">1109</a>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">
+</ul>
+</li>
+<li>
+<h3 id="1109httpsleetcodecomproblemscorporate-flight-bookings"><a href="https://leetcode.com/problems/Corporate-Flight-Bookings">1109</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">    <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]</span> <span style="color:#50fa7b">corpFlightBookings</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">[][]</span> bookings<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> n<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+        <span style="color:#6272a4">// Create an array to store the result
+</span><span style="color:#6272a4"></span>        <span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]</span> result <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#8be9fd">int</span><span style="color:#ff79c6">[</span>n<span style="color:#ff79c6">];</span>
+
+        <span style="color:#6272a4">// Iterate through each booking
+</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]</span> booking <span style="color:#ff79c6">:</span> bookings<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+            <span style="color:#6272a4">// Extract the start, end, and seats values from the booking
+</span><span style="color:#6272a4"></span>            <span style="color:#8be9fd">int</span> start <span style="color:#ff79c6">=</span> booking<span style="color:#ff79c6">[</span>0<span style="color:#ff79c6">];</span>
+            <span style="color:#8be9fd">int</span> end <span style="color:#ff79c6">=</span> booking<span style="color:#ff79c6">[</span>1<span style="color:#ff79c6">];</span>
+            <span style="color:#8be9fd">int</span> seats <span style="color:#ff79c6">=</span> booking<span style="color:#ff79c6">[</span>2<span style="color:#ff79c6">];</span>
+
+            <span style="color:#6272a4">// Add the seats to the result array for each flight in the booking range
+</span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> start<span style="color:#ff79c6">;</span> i <span style="color:#ff79c6">&lt;=</span> end<span style="color:#ff79c6">;</span> i<span style="color:#ff79c6">++)</span> <span style="color:#ff79c6">{</span>
+                result<span style="color:#ff79c6">[</span>i <span style="color:#ff79c6">-</span> 1<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">+=</span> seats<span style="color:#ff79c6">;</span>
+            <span style="color:#ff79c6">}</span>
+        <span style="color:#ff79c6">}</span>
+
+        <span style="color:#ff79c6">return</span> result<span style="color:#ff79c6">;</span>
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
 </code></pre></div></li>
-<li><a href="https://leetcode.com/problems/Teemo-Attacking">495</a>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">
+</ul>
+</li>
+<li>
+<h3 id="495httpsleetcodecomproblemsteemo-attacking"><a href="https://leetcode.com/problems/Teemo-Attacking">495</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">findPoisonedDuration</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]</span> timeSeries<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> duration<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+        <span style="color:#8be9fd">int</span> n <span style="color:#ff79c6">=</span> timeSeries<span style="color:#ff79c6">.</span><span style="color:#50fa7b">length</span><span style="color:#ff79c6">;</span>
+    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>n <span style="color:#ff79c6">==</span> 0<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span> <span style="color:#6272a4">// if there are no attacks, Ashe is not poisoned
+</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">return</span> 0<span style="color:#ff79c6">;</span>
+    <span style="color:#ff79c6">}</span>
+    <span style="color:#8be9fd">int</span> total <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span>
+    <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span> i <span style="color:#ff79c6">&lt;</span> n <span style="color:#ff79c6">-</span> 1<span style="color:#ff79c6">;</span> i<span style="color:#ff79c6">++)</span> <span style="color:#ff79c6">{</span> <span style="color:#6272a4">// iterate over all attacks except the last one
+</span><span style="color:#6272a4"></span>        total <span style="color:#ff79c6">+=</span> Math<span style="color:#ff79c6">.</span><span style="color:#50fa7b">min</span><span style="color:#ff79c6">(</span>timeSeries<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">+</span>1<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">-</span> timeSeries<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">],</span> duration<span style="color:#ff79c6">);</span> <span style="color:#6272a4">// add the duration of poison for each attack
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">}</span>
+    <span style="color:#ff79c6">return</span> total <span style="color:#ff79c6">+</span> duration<span style="color:#ff79c6">;</span> <span style="color:#6272a4">// add duration of poison for the last attack
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
 </code></pre></div></li>
-<li><a href="https://leetcode.com/problems/Add-Bold-Tag-in-String">616</a>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">
+</ul>
+</li>
+<li>
+<h3 id="616httpsleetcodecomproblemsadd-bold-tag-in-string"><a href="https://leetcode.com/problems/Add-Bold-Tag-in-String">616</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">addBoldTag</span><span style="color:#ff79c6">(</span>String s<span style="color:#ff79c6">,</span> String<span style="color:#ff79c6">[]</span> words<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+        <span style="color:#8be9fd">int</span> n <span style="color:#ff79c6">=</span> s<span style="color:#ff79c6">.</span><span style="color:#50fa7b">length</span><span style="color:#ff79c6">();</span>
+        <span style="color:#8be9fd">boolean</span><span style="color:#ff79c6">[]</span> bold <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#8be9fd">boolean</span><span style="color:#ff79c6">[</span>n<span style="color:#ff79c6">];</span>
+
+        <span style="color:#6272a4">// Mark all positions where words occur in s as bold
+</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span>String word <span style="color:#ff79c6">:</span> words<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+            <span style="color:#8be9fd">int</span> idx <span style="color:#ff79c6">=</span> s<span style="color:#ff79c6">.</span><span style="color:#50fa7b">indexOf</span><span style="color:#ff79c6">(</span>word<span style="color:#ff79c6">);</span>
+            <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">(</span>idx <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">-</span>1<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+                <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> idx<span style="color:#ff79c6">;</span> i <span style="color:#ff79c6">&lt;</span> idx <span style="color:#ff79c6">+</span> word<span style="color:#ff79c6">.</span><span style="color:#50fa7b">length</span><span style="color:#ff79c6">();</span> i<span style="color:#ff79c6">++)</span> <span style="color:#ff79c6">{</span>
+                    bold<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">true</span><span style="color:#ff79c6">;</span>
+                <span style="color:#ff79c6">}</span>
+                idx <span style="color:#ff79c6">=</span> s<span style="color:#ff79c6">.</span><span style="color:#50fa7b">indexOf</span><span style="color:#ff79c6">(</span>word<span style="color:#ff79c6">,</span> idx <span style="color:#ff79c6">+</span> 1<span style="color:#ff79c6">);</span>
+            <span style="color:#ff79c6">}</span>
+        <span style="color:#ff79c6">}</span>
+
+        <span style="color:#6272a4">// Insert bold tags at appropriate positions
+</span><span style="color:#6272a4"></span>        StringBuilder sb <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> StringBuilder<span style="color:#ff79c6">();</span>
+        <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span> i <span style="color:#ff79c6">&lt;</span> n<span style="color:#ff79c6">;</span> i<span style="color:#ff79c6">++)</span> <span style="color:#ff79c6">{</span>
+            <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>bold<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">&amp;&amp;</span> <span style="color:#ff79c6">(</span>i <span style="color:#ff79c6">==</span> 0 <span style="color:#ff79c6">||</span> <span style="color:#ff79c6">!</span>bold<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">-</span>1<span style="color:#ff79c6">]))</span> <span style="color:#ff79c6">{</span>
+                sb<span style="color:#ff79c6">.</span><span style="color:#50fa7b">append</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;&lt;b&gt;&#34;</span><span style="color:#ff79c6">);</span>
+            <span style="color:#ff79c6">}</span>
+            sb<span style="color:#ff79c6">.</span><span style="color:#50fa7b">append</span><span style="color:#ff79c6">(</span>s<span style="color:#ff79c6">.</span><span style="color:#50fa7b">charAt</span><span style="color:#ff79c6">(</span>i<span style="color:#ff79c6">));</span>
+            <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>bold<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">&amp;&amp;</span> <span style="color:#ff79c6">(</span>i <span style="color:#ff79c6">==</span> n<span style="color:#ff79c6">-</span>1 <span style="color:#ff79c6">||</span> <span style="color:#ff79c6">!</span>bold<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">+</span>1<span style="color:#ff79c6">]))</span> <span style="color:#ff79c6">{</span>
+                sb<span style="color:#ff79c6">.</span><span style="color:#50fa7b">append</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;&lt;/b&gt;&#34;</span><span style="color:#ff79c6">);</span>
+            <span style="color:#ff79c6">}</span>
+        <span style="color:#ff79c6">}</span>
+
+        <span style="color:#ff79c6">return</span> sb<span style="color:#ff79c6">.</span><span style="color:#50fa7b">toString</span><span style="color:#ff79c6">();</span>
+    <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
 </code></pre></div></li>
+</ul>
+</li>
 </ul>
 <h1 id="conclusion">Conclusion</h1>
 
@@ -349,6 +653,11 @@ Arrays.sort(intervals, (a, b) -&gt; Integer.compare(a[0], b[0]));</li>
                             Previous Post</a>
                     </li>
                     
+                    
+                    <li class="next">
+                        <a href="/2023/03/17/Subarray-Sum-Prefix-Sum/" data-toggle="tooltip" data-placement="top" title="刷题(二)">Next
+                            Post &rarr;</a>
+                    </li>
                     
                 </ul>
                 
