@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://i.ytimg.com/vi/ngCos392W4w/maxresdefault.jpg">
+    <meta property="twitter:image" content="https://i.ytimg.com/vi/ngCos392W4w/maxresdefault.jpg" />
+    
+
+    
+    <meta name="title" content="刷题(三)" />
+    <meta property="og:title" content="刷题(三)" />
+    <meta property="twitter:title" content="刷题(三)" />
+    
+
+    
+    <meta name="description" content="Recursion Problems">
+    <meta property="og:description" content="Recursion Problems" />
+    <meta property="twitter:description" content="Recursion Problems" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>刷题(三) | E-Carotene&#39;s Blog | John 3:11</title>
+
+    <link rel="canonical" href="/2023/03/20/recursion/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EMQTHH9PNF"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-EMQTHH9PNF', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"></a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/christian">christian</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/computer-science">computer-science</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/learn">learn</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="https://www.linkedin.com/in/weiyihenryhu/">ABOUT</a></li>
+                    
+		            <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		           </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://i.ytimg.com/vi/ngCos392W4w/maxresdefault.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/algorithms" title="Algorithms">
+                            Algorithms
+                        </a>
+                        
+                        <a class="tag" href="/tags/data-structure" title="Data-Structure">
+                            Data-Structure
+                        </a>
+                        
+                    </div>
+                    <h1>刷题(三)</h1>
+                    <h2 class="subheading">Recursion 笔记整理</h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                Seven..
+                             
+                            on 
+                            Monday, March 20, 2023
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h1 id="conditions">Conditions</h1>
+<ul>
+<li>
+<p>We refer to a recursive function as tail-recursion when the recursive call is the last thing that function executes. Otherwise, it&rsquo;s known as head-recursion.</p>
+</li>
+<li>
+<p>Iteration will be more complicated and harder to understand compared to recursion, for example: traversing a binary tree.</p>
+</li>
+<li>
+<p>DFS 图算法 =&gt; master theorem 
+  <img src="https://cdn-images-1.medium.com/max/1200/0*SMhJVzBPbBuiGOws.png" alt="master theorem">
+
+</p>
+</li>
+</ul>
+<h1 id="questions">Questions</h1>
+<ul>
+<li>
+<h3 id="21httpsleetcodecomproblemsmerge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/">21</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"> <span style="color:#6272a4">/**
+</span><span style="color:#6272a4"> * Definition for singly-linked list.
+</span><span style="color:#6272a4"> * public class ListNode {
+</span><span style="color:#6272a4"> *     int val;
+</span><span style="color:#6272a4"> *     ListNode next;
+</span><span style="color:#6272a4"> *     ListNode() {}
+</span><span style="color:#6272a4"> *     ListNode(int val) { this.val = val; }
+</span><span style="color:#6272a4"> *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+</span><span style="color:#6272a4"> * }
+</span><span style="color:#6272a4"> */</span>
+ <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+     <span style="color:#8be9fd;font-style:italic">public</span> ListNode <span style="color:#50fa7b">mergeTwoLists</span><span style="color:#ff79c6">(</span>ListNode list1<span style="color:#ff79c6">,</span> ListNode list2<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+     <span style="color:#6272a4">// Base case: if either list is null, return the other list
+</span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>list1 <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#ff79c6">return</span> list2<span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>list2 <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#ff79c6">return</span> list1<span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span>
+
+     <span style="color:#6272a4">// Recursive case: compare the values at the current nodes of both lists
+</span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>list1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">val</span> <span style="color:#ff79c6">&lt;</span> list2<span style="color:#ff79c6">.</span><span style="color:#50fa7b">val</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#6272a4">// If the value in l1 is smaller, merge the rest of l1 with the remaining nodes in l2
+</span><span style="color:#6272a4"></span>         list1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span> <span style="color:#ff79c6">=</span> mergeTwoLists<span style="color:#ff79c6">(</span>list1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span><span style="color:#ff79c6">,</span> list2<span style="color:#ff79c6">);</span>
+         <span style="color:#ff79c6">return</span> list1<span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#6272a4">// If the value in l2 is smaller, merge the rest of l2 with the remaining nodes in l1
+</span><span style="color:#6272a4"></span>         list2<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span> <span style="color:#ff79c6">=</span> mergeTwoLists<span style="color:#ff79c6">(</span>list1<span style="color:#ff79c6">,</span> list2<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span><span style="color:#ff79c6">);</span>
+         <span style="color:#ff79c6">return</span> list2<span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span> 
+     <span style="color:#ff79c6">}</span>
+ <span style="color:#ff79c6">}</span>
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="203httpsleetcodecomproblemsremove-linked-list-elements"><a href="https://leetcode.com/problems/remove-linked-list-elements/">203</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"> <span style="color:#6272a4">/**
+</span><span style="color:#6272a4"> * Definition for singly-linked list.
+</span><span style="color:#6272a4"> * public class ListNode {
+</span><span style="color:#6272a4"> *     int val;
+</span><span style="color:#6272a4"> *     ListNode next;
+</span><span style="color:#6272a4"> *     ListNode() {}
+</span><span style="color:#6272a4"> *     ListNode(int val) { this.val = val; }
+</span><span style="color:#6272a4"> *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+</span><span style="color:#6272a4"> * }
+</span><span style="color:#6272a4"> */</span>
+ <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+     <span style="color:#8be9fd;font-style:italic">public</span> ListNode <span style="color:#50fa7b">removeElements</span><span style="color:#ff79c6">(</span>ListNode head<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> val<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#6272a4">// Base case: if the head of the list is null, return null
+</span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>head <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span>
+
+     <span style="color:#6272a4">// Recursive case: remove the target value from the rest of the list
+</span><span style="color:#6272a4"></span>     head<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span> <span style="color:#ff79c6">=</span> removeElements<span style="color:#ff79c6">(</span>head<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span><span style="color:#ff79c6">,</span> val<span style="color:#ff79c6">);</span>
+     <span style="color:#6272a4">// If the value of the head node is equal to the target value, return the rest of the list
+</span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>head<span style="color:#ff79c6">.</span><span style="color:#50fa7b">val</span> <span style="color:#ff79c6">==</span> val<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#ff79c6">return</span> head<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span><span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#6272a4">// Otherwise, return the head node
+</span><span style="color:#6272a4"></span>         <span style="color:#ff79c6">return</span> head<span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span>
+     <span style="color:#ff79c6">}</span>
+ <span style="color:#ff79c6">}</span>
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="206httpsleetcodecomproblemsreverse-linked-list"><a href="https://leetcode.com/problems/reverse-linked-list/">206</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"> <span style="color:#6272a4">/**
+</span><span style="color:#6272a4"> * Definition for singly-linked list.
+</span><span style="color:#6272a4"> * public class ListNode {
+</span><span style="color:#6272a4"> *     int val;
+</span><span style="color:#6272a4"> *     ListNode next;
+</span><span style="color:#6272a4"> *     ListNode() {}
+</span><span style="color:#6272a4"> *     ListNode(int val) { this.val = val; }
+</span><span style="color:#6272a4"> *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+</span><span style="color:#6272a4"> * }
+</span><span style="color:#6272a4"> */</span>
+ <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+     <span style="color:#8be9fd;font-style:italic">public</span> ListNode <span style="color:#50fa7b">reverseList</span><span style="color:#ff79c6">(</span>ListNode head<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+     <span style="color:#6272a4">// Base case: if the list is empty or has only one node, return the head
+</span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>head <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">||</span> head<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span> <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#ff79c6">return</span> head<span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span>
+
+     <span style="color:#6272a4">// Recursive case: reverse the rest of the list and append the head to the end
+</span><span style="color:#6272a4"></span>     ListNode reversedList <span style="color:#ff79c6">=</span> reverseList<span style="color:#ff79c6">(</span>head<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span><span style="color:#ff79c6">);</span>
+     head<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span> <span style="color:#ff79c6">=</span> head<span style="color:#ff79c6">;</span>
+     head<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+
+     <span style="color:#6272a4">// Return the new head of the reversed list
+</span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">return</span> reversedList<span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span>
+ <span style="color:#ff79c6">}</span>
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="509httpsleetcodecomproblemsfibonacci-number"><a href="https://leetcode.com/problems/fibonacci-number/">509</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+     <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">fib</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> n<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#6272a4">// Base case: if n is 0 or 1, return n
+</span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>n <span style="color:#ff79c6">&lt;=</span> 1<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#ff79c6">return</span> n<span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span>
+
+     <span style="color:#6272a4">// Recursive case: compute the nth Fibonacci number as the sum of the previous two numbers
+</span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">return</span> fib<span style="color:#ff79c6">(</span>n <span style="color:#ff79c6">-</span> 1<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">+</span> fib<span style="color:#ff79c6">(</span>n <span style="color:#ff79c6">-</span> 2<span style="color:#ff79c6">);</span>
+     <span style="color:#ff79c6">}</span>
+ <span style="color:#ff79c6">}</span>
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="234httpsleetcodecomproblemspalindrome-linked-list"><a href="https://leetcode.com/problems/palindrome-linked-list/">234</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+
+     <span style="color:#6272a4">// Define a private ListNode variable named frontPointer
+</span><span style="color:#6272a4"></span>     <span style="color:#6272a4">// to keep track of the front node of the linked list
+</span><span style="color:#6272a4"></span>     <span style="color:#8be9fd;font-style:italic">private</span> ListNode frontPointer<span style="color:#ff79c6">;</span>
+
+     <span style="color:#6272a4">// Define a private boolean method named recursivelyCheck
+</span><span style="color:#6272a4"></span>     <span style="color:#6272a4">// that takes a ListNode parameter named currentNode as input
+</span><span style="color:#6272a4"></span>     <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">boolean</span> <span style="color:#50fa7b">recursivelyCheck</span><span style="color:#ff79c6">(</span>ListNode currentNode<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+
+         <span style="color:#6272a4">// If currentNode is not null
+</span><span style="color:#6272a4"></span>         <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>currentNode <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+
+             <span style="color:#6272a4">// Recursively call recursivelyCheck on the next node and check if the returned value is false
+</span><span style="color:#6272a4"></span>             <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(!</span>recursivelyCheck<span style="color:#ff79c6">(</span>currentNode<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span><span style="color:#ff79c6">))</span> <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">false</span><span style="color:#ff79c6">;</span>
+
+             <span style="color:#6272a4">// Check if the value of currentNode is equal to the value of the node pointed to by frontPointer
+</span><span style="color:#6272a4"></span>             <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>currentNode<span style="color:#ff79c6">.</span><span style="color:#50fa7b">val</span> <span style="color:#ff79c6">!=</span> frontPointer<span style="color:#ff79c6">.</span><span style="color:#50fa7b">val</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">false</span><span style="color:#ff79c6">;</span>
+
+             <span style="color:#6272a4">// Move the frontPointer to the next node
+</span><span style="color:#6272a4"></span>             frontPointer <span style="color:#ff79c6">=</span> frontPointer<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span><span style="color:#ff79c6">;</span>
+         <span style="color:#ff79c6">}</span>
+
+         <span style="color:#6272a4">// Return true to the caller
+</span><span style="color:#6272a4"></span>         <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span><span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span>
+
+     <span style="color:#6272a4">// Define a public boolean method named isPalindrome that takes a ListNode parameter named head as input
+</span><span style="color:#6272a4"></span>     <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">boolean</span> <span style="color:#50fa7b">isPalindrome</span><span style="color:#ff79c6">(</span>ListNode head<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+
+         <span style="color:#6272a4">// Set frontPointer to head
+</span><span style="color:#6272a4"></span>         frontPointer <span style="color:#ff79c6">=</span> head<span style="color:#ff79c6">;</span>
+
+         <span style="color:#6272a4">// Call the recursivelyCheck method with head as input and return the result
+</span><span style="color:#6272a4"></span>         <span style="color:#ff79c6">return</span> recursivelyCheck<span style="color:#ff79c6">(</span>head<span style="color:#ff79c6">);</span>
+     <span style="color:#ff79c6">}</span>
+ <span style="color:#ff79c6">}</span>
+
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="24httpsleetcodecomproblemsswap-nodes-in-pairs"><a href="https://leetcode.com/problems/swap-nodes-in-pairs/">24</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"> <span style="color:#6272a4">/**
+</span><span style="color:#6272a4"> * Definition for singly-linked list.
+</span><span style="color:#6272a4"> * public class ListNode {
+</span><span style="color:#6272a4"> *     int val;
+</span><span style="color:#6272a4"> *     ListNode next;
+</span><span style="color:#6272a4"> *     ListNode() {}
+</span><span style="color:#6272a4"> *     ListNode(int val) { this.val = val; }
+</span><span style="color:#6272a4"> *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+</span><span style="color:#6272a4"> * }
+</span><span style="color:#6272a4"> */</span>
+ <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+     <span style="color:#8be9fd;font-style:italic">public</span> ListNode <span style="color:#50fa7b">swapPairs</span><span style="color:#ff79c6">(</span>ListNode head<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+     <span style="color:#6272a4">// Base case: return the given list if it is null or contains only one node
+</span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>head <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">||</span> head<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span> <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#ff79c6">return</span> head<span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span>
+
+     <span style="color:#6272a4">// Recursive case: swap the first two nodes in the list
+</span><span style="color:#6272a4"></span>     ListNode firstNode <span style="color:#ff79c6">=</span> head<span style="color:#ff79c6">;</span>
+     ListNode secondNode <span style="color:#ff79c6">=</span> head<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span><span style="color:#ff79c6">;</span>
+     firstNode<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span> <span style="color:#ff79c6">=</span> swapPairs<span style="color:#ff79c6">(</span>secondNode<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span><span style="color:#ff79c6">);</span>
+     secondNode<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span> <span style="color:#ff79c6">=</span> firstNode<span style="color:#ff79c6">;</span>
+
+     <span style="color:#6272a4">// Update the head of the list with the result of the recursive call
+</span><span style="color:#6272a4"></span>     head <span style="color:#ff79c6">=</span> secondNode<span style="color:#ff79c6">;</span>
+
+     <span style="color:#6272a4">// Return the updated head of the list
+</span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">return</span> head<span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span>
+ <span style="color:#ff79c6">}</span>
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="143httpsleetcodecomproblemsreorder-list"><a href="https://leetcode.com/problems/reorder-list/">143</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"> <span style="color:#6272a4">/**
+</span><span style="color:#6272a4"> * Definition for singly-linked list.
+</span><span style="color:#6272a4"> * public class ListNode {
+</span><span style="color:#6272a4"> *     int val;
+</span><span style="color:#6272a4"> *     ListNode next;
+</span><span style="color:#6272a4"> *     ListNode() {}
+</span><span style="color:#6272a4"> *     ListNode(int val) { this.val = val; }
+</span><span style="color:#6272a4"> *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+</span><span style="color:#6272a4"> * }
+</span><span style="color:#6272a4"> */</span>
+ <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+     <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">reorderList</span><span style="color:#ff79c6">(</span>ListNode head<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#6272a4">// Base case: return the given list if it is null or contains only one node
+</span><span style="color:#6272a4"></span>         <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>head <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">||</span> head<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span> <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+             <span style="color:#ff79c6">return</span><span style="color:#ff79c6">;</span>
+         <span style="color:#ff79c6">}</span>
+
+         <span style="color:#6272a4">// Find the midpoint of the list
+</span><span style="color:#6272a4"></span>         ListNode slow <span style="color:#ff79c6">=</span> head<span style="color:#ff79c6">;</span>
+         ListNode fast <span style="color:#ff79c6">=</span> head<span style="color:#ff79c6">;</span>
+         <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">(</span>fast<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span> <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">&amp;&amp;</span> fast<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span> <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+             slow <span style="color:#ff79c6">=</span> slow<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span><span style="color:#ff79c6">;</span>
+             fast <span style="color:#ff79c6">=</span> fast<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span><span style="color:#ff79c6">;</span>
+         <span style="color:#ff79c6">}</span>
+
+         <span style="color:#6272a4">// Reverse the second half of the list
+</span><span style="color:#6272a4"></span>         ListNode secondHalf <span style="color:#ff79c6">=</span> reverseList<span style="color:#ff79c6">(</span>slow<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span><span style="color:#ff79c6">);</span>
+         slow<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+
+         <span style="color:#6272a4">// Merge the first and second halves of the list
+</span><span style="color:#6272a4"></span>         mergeLists<span style="color:#ff79c6">(</span>head<span style="color:#ff79c6">,</span> secondHalf<span style="color:#ff79c6">);</span>
+     <span style="color:#ff79c6">}</span>
+
+     <span style="color:#6272a4">// Helper function to reverse a list
+</span><span style="color:#6272a4"></span>     <span style="color:#8be9fd;font-style:italic">private</span> ListNode <span style="color:#50fa7b">reverseList</span><span style="color:#ff79c6">(</span>ListNode head<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#6272a4">// Base case: return the given list if it is null or contains only one node
+</span><span style="color:#6272a4"></span>         <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>head <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">||</span> head<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span> <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+             <span style="color:#ff79c6">return</span> head<span style="color:#ff79c6">;</span>
+         <span style="color:#ff79c6">}</span>
+
+         <span style="color:#6272a4">// Recursive case: reverse the rest of the list and append the current node to the end
+</span><span style="color:#6272a4"></span>         ListNode reversedList <span style="color:#ff79c6">=</span> reverseList<span style="color:#ff79c6">(</span>head<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span><span style="color:#ff79c6">);</span>
+         head<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span> <span style="color:#ff79c6">=</span> head<span style="color:#ff79c6">;</span>
+         head<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+
+         <span style="color:#ff79c6">return</span> reversedList<span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span>
+
+     <span style="color:#6272a4">// Helper function to merge two lists by alternating their nodes
+</span><span style="color:#6272a4"></span>     <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">mergeLists</span><span style="color:#ff79c6">(</span>ListNode list1<span style="color:#ff79c6">,</span> ListNode list2<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">(</span>list1 <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">&amp;&amp;</span> list2 <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+             ListNode next1 <span style="color:#ff79c6">=</span> list1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span><span style="color:#ff79c6">;</span>
+             ListNode next2 <span style="color:#ff79c6">=</span> list2<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span><span style="color:#ff79c6">;</span>
+             list1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span> <span style="color:#ff79c6">=</span> list2<span style="color:#ff79c6">;</span>
+             list2<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span> <span style="color:#ff79c6">=</span> next1<span style="color:#ff79c6">;</span>
+             list1 <span style="color:#ff79c6">=</span> next1<span style="color:#ff79c6">;</span>
+             list2 <span style="color:#ff79c6">=</span> next2<span style="color:#ff79c6">;</span>
+         <span style="color:#ff79c6">}</span>
+     <span style="color:#ff79c6">}</span>
+ <span style="color:#ff79c6">}</span>
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="241httpsleetcodecomproblemsdifferent-ways-to-add-parentheses"><a href="https://leetcode.com/problems/different-ways-to-add-parentheses/">241</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+     <span style="color:#8be9fd;font-style:italic">public</span> List<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">&gt;</span> <span style="color:#50fa7b">diffWaysToCompute</span><span style="color:#ff79c6">(</span>String expression<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         List<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">&gt;</span> result <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ArrayList<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">&gt;();</span>
+
+         <span style="color:#6272a4">// Base case: if the expression is a single number, return it as a list
+</span><span style="color:#6272a4"></span>         <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>expression<span style="color:#ff79c6">.</span><span style="color:#50fa7b">matches</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;\\d+&#34;</span><span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
+             result<span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span>Integer<span style="color:#ff79c6">.</span><span style="color:#50fa7b">valueOf</span><span style="color:#ff79c6">(</span>expression<span style="color:#ff79c6">));</span>
+             <span style="color:#ff79c6">return</span> result<span style="color:#ff79c6">;</span>
+         <span style="color:#ff79c6">}</span>
+
+         <span style="color:#6272a4">// Recursive case: split the expression by each operator and recursively evaluate
+</span><span style="color:#6272a4"></span>         <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span> i <span style="color:#ff79c6">&lt;</span> expression<span style="color:#ff79c6">.</span><span style="color:#50fa7b">length</span><span style="color:#ff79c6">();</span> i<span style="color:#ff79c6">++)</span> <span style="color:#ff79c6">{</span>
+             <span style="color:#8be9fd">char</span> c <span style="color:#ff79c6">=</span> expression<span style="color:#ff79c6">.</span><span style="color:#50fa7b">charAt</span><span style="color:#ff79c6">(</span>i<span style="color:#ff79c6">);</span>
+             <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>c <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;+&#39;</span> <span style="color:#ff79c6">||</span> c <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;-&#39;</span> <span style="color:#ff79c6">||</span> c <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;*&#39;</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+                 String leftExpression <span style="color:#ff79c6">=</span> expression<span style="color:#ff79c6">.</span><span style="color:#50fa7b">substring</span><span style="color:#ff79c6">(</span>0<span style="color:#ff79c6">,</span> i<span style="color:#ff79c6">);</span>
+                 String rightExpression <span style="color:#ff79c6">=</span> expression<span style="color:#ff79c6">.</span><span style="color:#50fa7b">substring</span><span style="color:#ff79c6">(</span>i <span style="color:#ff79c6">+</span> 1<span style="color:#ff79c6">);</span>
+
+                 <span style="color:#6272a4">// Recursively evaluate the left and right expressions
+</span><span style="color:#6272a4"></span>                 List<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">&gt;</span> leftResult <span style="color:#ff79c6">=</span> diffWaysToCompute<span style="color:#ff79c6">(</span>leftExpression<span style="color:#ff79c6">);</span>
+                 List<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">&gt;</span> rightResult <span style="color:#ff79c6">=</span> diffWaysToCompute<span style="color:#ff79c6">(</span>rightExpression<span style="color:#ff79c6">);</span>
+
+                 <span style="color:#6272a4">// Combine the left and right results using the operator
+</span><span style="color:#6272a4"></span>                 <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span>Integer left <span style="color:#ff79c6">:</span> leftResult<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+                     <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span>Integer right <span style="color:#ff79c6">:</span> rightResult<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+                         <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>c <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;+&#39;</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+                             result<span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span>left <span style="color:#ff79c6">+</span> right<span style="color:#ff79c6">);</span>
+                         <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>c <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;-&#39;</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+                             result<span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span>left <span style="color:#ff79c6">-</span> right<span style="color:#ff79c6">);</span>
+                         <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>c <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;*&#39;</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+                             result<span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span>left <span style="color:#ff79c6">*</span> right<span style="color:#ff79c6">);</span>
+                         <span style="color:#ff79c6">}</span>
+                     <span style="color:#ff79c6">}</span>
+                 <span style="color:#ff79c6">}</span>
+             <span style="color:#ff79c6">}</span>
+         <span style="color:#ff79c6">}</span>
+
+         <span style="color:#6272a4">// Return the final result
+</span><span style="color:#6272a4"></span>         <span style="color:#ff79c6">return</span> result<span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span>
+ <span style="color:#ff79c6">}</span>
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="779httpsleetcodecomproblemsk-th-symbol-in-grammar"><a href="https://leetcode.com/problems/k-th-symbol-in-grammar/">779</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+     <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">kthGrammar</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> n<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> k<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+     <span style="color:#6272a4">// Base case: if n is 1, the only possible symbol is 0
+</span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>n <span style="color:#ff79c6">==</span> 1<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#ff79c6">return</span> 0<span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span>
+
+     <span style="color:#6272a4">// Recursive case: determine which half of the previous row the kth symbol belongs to
+</span><span style="color:#6272a4"></span>     <span style="color:#8be9fd">int</span> prevLength <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">)</span> Math<span style="color:#ff79c6">.</span><span style="color:#50fa7b">pow</span><span style="color:#ff79c6">(</span>2<span style="color:#ff79c6">,</span> n <span style="color:#ff79c6">-</span> 2<span style="color:#ff79c6">);</span>
+     <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>k <span style="color:#ff79c6">&lt;=</span> prevLength<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#6272a4">// The kth symbol is in the first half of the previous row
+</span><span style="color:#6272a4"></span>         <span style="color:#ff79c6">return</span> kthGrammar<span style="color:#ff79c6">(</span>n <span style="color:#ff79c6">-</span> 1<span style="color:#ff79c6">,</span> k<span style="color:#ff79c6">);</span>
+     <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#6272a4">// The kth symbol is in the second half of the previous row
+</span><span style="color:#6272a4"></span>         <span style="color:#8be9fd">int</span> complement <span style="color:#ff79c6">=</span> kthGrammar<span style="color:#ff79c6">(</span>n <span style="color:#ff79c6">-</span> 1<span style="color:#ff79c6">,</span> k <span style="color:#ff79c6">-</span> prevLength<span style="color:#ff79c6">);</span>
+         <span style="color:#6272a4">// Flip the complement of the kth symbol in the previous row
+</span><span style="color:#6272a4"></span>         <span style="color:#ff79c6">return</span> complement <span style="color:#ff79c6">==</span> 0 <span style="color:#ff79c6">?</span> 1 <span style="color:#ff79c6">:</span> 0<span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span>
+     <span style="color:#ff79c6">}</span>
+ <span style="color:#ff79c6">}</span>
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="1265httpsleetcodecomproblemsprint-immutable-linked-list-in-reverse"><a href="https://leetcode.com/problems/print-immutable-linked-list-in-reverse/">1265</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"> <span style="color:#6272a4">/**
+</span><span style="color:#6272a4"> * // This is the ImmutableListNode&#39;s API interface.
+</span><span style="color:#6272a4"> * // You should not implement it, or speculate about its implementation.
+</span><span style="color:#6272a4"> * interface ImmutableListNode {
+</span><span style="color:#6272a4"> *     public void printValue(); // print the value of this node.
+</span><span style="color:#6272a4"> *     public ImmutableListNode getNext(); // return the next node.
+</span><span style="color:#6272a4"> * };
+</span><span style="color:#6272a4"> */</span>
+
+ <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+     <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">printLinkedListInReverse</span><span style="color:#ff79c6">(</span>ImmutableListNode head<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>head <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+             <span style="color:#ff79c6">return</span><span style="color:#ff79c6">;</span> <span style="color:#6272a4">// base case: return if the list is empty
+</span><span style="color:#6272a4"></span>         <span style="color:#ff79c6">}</span>
+         printLinkedListInReverse<span style="color:#ff79c6">(</span>head<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getNext</span><span style="color:#ff79c6">());</span> <span style="color:#6272a4">// recursive call to print the next node in the list
+</span><span style="color:#6272a4"></span>         head<span style="color:#ff79c6">.</span><span style="color:#50fa7b">printValue</span><span style="color:#ff79c6">();</span> <span style="color:#6272a4">// print the value of the current node after the recursive call
+</span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">}</span>
+ <span style="color:#ff79c6">}</span>
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="1545httpsleetcodecomproblemsfind-kth-bit-in-nth-binary-string"><a href="https://leetcode.com/problems/find-kth-bit-in-nth-binary-string/">1545</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+     <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">char</span> <span style="color:#50fa7b">findKthBit</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> n<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> k<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>n <span style="color:#ff79c6">==</span> 1<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#39;0&#39;</span><span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span>
+     <span style="color:#8be9fd">int</span> length <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">)</span> Math<span style="color:#ff79c6">.</span><span style="color:#50fa7b">pow</span><span style="color:#ff79c6">(</span>2<span style="color:#ff79c6">,</span> n<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">-</span> 1<span style="color:#ff79c6">;</span> <span style="color:#6272a4">// Calculate length of the current string
+</span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>k <span style="color:#ff79c6">==</span> length <span style="color:#ff79c6">/</span> 2 <span style="color:#ff79c6">+</span> 1<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span> <span style="color:#6272a4">// If k is the middle element, return 1
+</span><span style="color:#6272a4"></span>         <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#39;1&#39;</span><span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>k <span style="color:#ff79c6">&lt;</span> length <span style="color:#ff79c6">/</span> 2 <span style="color:#ff79c6">+</span> 1<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span> <span style="color:#6272a4">// If k is in the first half, recursively search for k in the next string
+</span><span style="color:#6272a4"></span>         <span style="color:#ff79c6">return</span> findKthBit<span style="color:#ff79c6">(</span>n <span style="color:#ff79c6">-</span> 1<span style="color:#ff79c6">,</span> k<span style="color:#ff79c6">);</span>
+     <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span> <span style="color:#6272a4">// If k is in the second half, recursively search for the complement of k in the next string and invert it
+</span><span style="color:#6272a4"></span>         <span style="color:#8be9fd">char</span> complement <span style="color:#ff79c6">=</span> findKthBit<span style="color:#ff79c6">(</span>n <span style="color:#ff79c6">-</span> 1<span style="color:#ff79c6">,</span> length <span style="color:#ff79c6">-</span> k <span style="color:#ff79c6">+</span> 1<span style="color:#ff79c6">);</span>
+         <span style="color:#ff79c6">return</span> complement <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;0&#39;</span> <span style="color:#ff79c6">?</span> <span style="color:#f1fa8c">&#39;1&#39;</span> <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;0&#39;</span><span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span> 
+     <span style="color:#ff79c6">}</span>
+ <span style="color:#ff79c6">}</span>
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="1823httpsleetcodecomproblemsfind-the-winner-of-the-circular-game"><a href="https://leetcode.com/problems/find-the-winner-of-the-circular-game/">1823</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+     <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">findTheWinner</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> n<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> k<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+     <span style="color:#6272a4">// Base case: if there is only one player, that player wins
+</span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>n <span style="color:#ff79c6">==</span> 1<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#ff79c6">return</span> 1<span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span>
+
+     <span style="color:#6272a4">// Recursive case: find the winner of a smaller game with n-1 players and k positions
+</span><span style="color:#6272a4"></span>     <span style="color:#8be9fd">int</span> winner <span style="color:#ff79c6">=</span> findTheWinner<span style="color:#ff79c6">(</span>n <span style="color:#ff79c6">-</span> 1<span style="color:#ff79c6">,</span> k<span style="color:#ff79c6">);</span>
+
+     <span style="color:#6272a4">// Calculate the index of the next player to be eliminated
+</span><span style="color:#6272a4"></span>     <span style="color:#8be9fd">int</span> nextPlayer <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>winner <span style="color:#ff79c6">+</span> k <span style="color:#ff79c6">-</span> 1<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">%</span> n <span style="color:#ff79c6">+</span> 1<span style="color:#ff79c6">;</span>
+
+     <span style="color:#6272a4">// Return the index of the winner
+</span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">return</span> nextPlayer<span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span>
+ <span style="color:#ff79c6">}</span>
+</code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h1 id="conclusion">Conclusion</h1>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p> 「少种的少收，多种的多收,捐款会鼓励作者多创作以及教会福音传播!!」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="https://weiyi-hu.com/"><img src="/img/favicon.png" /></a></span>
+        
+	        <p class="tip"><i></i><span>少种的少收，多种的多收,捐款会鼓励作者多创作以及教会福音传播!!</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2023/03/17/Subarray-Sum-Prefix-Sum/" data-toggle="tooltip" data-placement="top" title="刷题(二)">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+                
+
+                
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">                  
+                    
+                    <li>
+                        <a href="mailto:wy.hu@mail.utoronto.ca">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    <li>
+                        <a href="https://twitter.com/weiyi_hoo">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/weiyi.hu.3/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+
+		            
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/Waye">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/weiyihenryhu/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            <li>
+                <a target="_blank" href="https://www.instagram.com/wy_henry/">
+                    <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            
+            
+           
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy;  2023
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

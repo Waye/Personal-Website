@@ -6,7 +6,16 @@
     <description>Recent content in Learn on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 17 Mar 2023 02:24:00 +0000</lastBuildDate><atom:link href="https://weiyi-hu.com/categories/learn/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Mar 2023 14:00:00 +0000</lastBuildDate><atom:link href="https://weiyi-hu.com/categories/learn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>刷题(三)</title>
+      <link>https://weiyi-hu.com/2023/03/20/recursion/</link>
+      <pubDate>Mon, 20 Mar 2023 14:00:00 +0000</pubDate>
+      
+      <guid>https://weiyi-hu.com/2023/03/20/recursion/</guid>
+      <description>Conditions We refer to a recursive function as tail-recursion when the recursive call is the last thing that function executes. Otherwise, it&amp;rsquo;s known as head-recursion. Iteration will be more complicated and harder to understand compared to recursion, for example: traversing a binary tree. DFS 图算法 =&amp;gt; master theorem Questions 21 /** * Definition for singly-linked list. * public class ListNode { * int val; * ListNode next; *</description>
+    </item>
+    
     <item>
       <title>刷题(二)</title>
       <link>https://weiyi-hu.com/2023/03/17/Subarray-Sum-Prefix-Sum/</link>
