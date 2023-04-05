@@ -6,43 +6,7 @@
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Mar 2023 21:26:00 +0000</lastBuildDate><atom:link href="https://weiyi-hu.com/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>刷题(四)</title>
-      <link>https://weiyi-hu.com/2023/03/29/Sliding-Window-Two-Pointer-Fast-Slow-Pointer/</link>
-      <pubDate>Wed, 29 Mar 2023 21:26:00 +0000</pubDate>
-      
-      <guid>https://weiyi-hu.com/2023/03/29/Sliding-Window-Two-Pointer-Fast-Slow-Pointer/</guid>
-      <description>Sliding Window Conditions contiguous subarrays (or sublists) of a given size Questions 209 class Solution { public int minSubArrayLen(int target, int[] nums) { int n = nums.length; int left = 0, right = 0, sum = 0, minLen = Integer.MAX_VALUE; // Loop through the array using two pointers: left and right while (right &amp;lt; n) { // Add the current number to the sum sum += nums[right]; // If the</description>
-    </item>
-    
-    <item>
-      <title>刷题(三)</title>
-      <link>https://weiyi-hu.com/2023/03/20/recursion/</link>
-      <pubDate>Mon, 20 Mar 2023 14:00:00 +0000</pubDate>
-      
-      <guid>https://weiyi-hu.com/2023/03/20/recursion/</guid>
-      <description>Conditions We refer to a recursive function as tail-recursion when the recursive call is the last thing that function executes. Otherwise, it&amp;rsquo;s known as head-recursion. Iteration will be more complicated and harder to understand compared to recursion, for example: traversing a binary tree. DFS 图算法 =&amp;gt; master theorem Questions 21 /** * Definition for singly-linked list. * public class ListNode { * int val; * ListNode next; *</description>
-    </item>
-    
-    <item>
-      <title>刷题(二)</title>
-      <link>https://weiyi-hu.com/2023/03/17/Subarray-Sum-Prefix-Sum/</link>
-      <pubDate>Fri, 17 Mar 2023 02:24:00 +0000</pubDate>
-      
-      <guid>https://weiyi-hu.com/2023/03/17/Subarray-Sum-Prefix-Sum/</guid>
-      <description>Conditions Prefix sum is a powerful pre-processing/ caching technique for algorithm problems. The idea is to calculate/store the consecutive totals of the elements in an array in O(n). Questions 304 class NumMatrix { // To achieve O(1) time complexity for sumRegion, we can use a precomputation technique called prefix sum. We can calculate a 2D prefix sum matrix where each element in the matrix represents the sum of all elements</description>
-    </item>
-    
-    <item>
-      <title>刷题(一)</title>
-      <link>https://weiyi-hu.com/2023/03/13/merge-interval/</link>
-      <pubDate>Mon, 13 Mar 2023 23:06:00 +0000</pubDate>
-      
-      <guid>https://weiyi-hu.com/2023/03/13/merge-interval/</guid>
-      <description>Conditions Questions 56 class Solution { public int[][] merge(int[][] intervals) { //sort Arrays.sort(intervals, Comparator.comparingInt(a -&amp;gt; a[0])); List&amp;lt;int[]&amp;gt; merged = new ArrayList&amp;lt;&amp;gt;(); for(int[]interval:intervals){ //empty(),arraylist get last element =merged.size()-1 if( merged.isEmpty() || merged.get(merged.size()-1)[1] &amp;lt; interval[0]){ merged.add(interval); }else if(merged.get(merged.size()-1)[1] &amp;gt;= interval[0] ){ merged.get(merged.size()-1)[1] = Math.max(merged.get(merged.size()-1)[1],interval[1] ); } } //toArray(new int[][]) return merged.toArray(new int[merged.size()][2]); } } Arrays.sort(intervals, Comparator.comparingInt(a -&amp;gt; a[0])); Arrays.sort(intervals, (a, b) -&amp;gt; Integer.compare(a[0], b[0])); 57 class Solution { public int[][] insert(int[][] intervals,</description>
-    </item>
-    
+    <lastBuildDate>Wed, 01 Mar 2023 22:16:00 +0000</lastBuildDate><atom:link href="https://weiyi-hu.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>信仰基础(一)</title>
       <link>https://weiyi-hu.com/2023/03/01/foundation-of-faith-one/</link>
