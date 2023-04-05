@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://i.ytimg.com/vi/On03HWe2tZM/maxresdefault.jpg">
+    <meta property="twitter:image" content="https://i.ytimg.com/vi/On03HWe2tZM/maxresdefault.jpg" />
+    
+
+    
+    <meta name="title" content="刷题(四)" />
+    <meta property="og:title" content="刷题(四)" />
+    <meta property="twitter:title" content="刷题(四)" />
+    
+
+    
+    <meta name="description" content="Sliding Window, Two Pointer, Fast &amp; Slow Pointer Problems">
+    <meta property="og:description" content="Sliding Window, Two Pointer, Fast &amp; Slow Pointer Problems" />
+    <meta property="twitter:description" content="Sliding Window, Two Pointer, Fast &amp; Slow Pointer Problems" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>刷题(四) | E-Carotene&#39;s Blog | John 3:11</title>
+
+    <link rel="canonical" href="/2023/03/29/Sliding-Window-Two-Pointer-Fast-Slow-Pointer/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EMQTHH9PNF"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-EMQTHH9PNF', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"></a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/christian">christian</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/computer-science">computer-science</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/learn">learn</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="https://www.linkedin.com/in/weiyihenryhu/">ABOUT</a></li>
+                    
+		            <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		           </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://i.ytimg.com/vi/On03HWe2tZM/maxresdefault.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/algorithms" title="Algorithms">
+                            Algorithms
+                        </a>
+                        
+                        <a class="tag" href="/tags/data-structure" title="Data-Structure">
+                            Data-Structure
+                        </a>
+                        
+                    </div>
+                    <h1>刷题(四)</h1>
+                    <h2 class="subheading">Sliding Window, Two Pointer, Fast &amp; Slow Pointer 笔记整理</h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                Seven..
+                             
+                            on 
+                            Wednesday, March 29, 2023
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h1 id="sliding-window">Sliding Window</h1>
+<h2 id="conditions">Conditions</h2>
+<ul>
+<li>contiguous subarrays (or sublists) of a given size</li>
+</ul>
+<h2 id="questions">Questions</h2>
+<ul>
+<li>
+<h3 id="209httpsleetcodecomproblemsminimum-size-subarray-sum"><a href="https://leetcode.com/problems/minimum-size-subarray-sum/">209</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+     <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">minSubArrayLen</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> target<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]</span> nums<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#8be9fd">int</span> n <span style="color:#ff79c6">=</span> nums<span style="color:#ff79c6">.</span><span style="color:#50fa7b">length</span><span style="color:#ff79c6">;</span>
+         <span style="color:#8be9fd">int</span> left <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">,</span> right <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">,</span> sum <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">,</span> minLen <span style="color:#ff79c6">=</span> Integer<span style="color:#ff79c6">.</span><span style="color:#50fa7b">MAX_VALUE</span><span style="color:#ff79c6">;</span>
+
+         <span style="color:#6272a4">// Loop through the array using two pointers: left and right
+</span><span style="color:#6272a4"></span>         <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">(</span>right <span style="color:#ff79c6">&lt;</span> n<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+             <span style="color:#6272a4">// Add the current number to the sum
+</span><span style="color:#6272a4"></span>             sum <span style="color:#ff79c6">+=</span> nums<span style="color:#ff79c6">[</span>right<span style="color:#ff79c6">];</span>
+
+             <span style="color:#6272a4">// If the sum is greater than or equal to the target,
+</span><span style="color:#6272a4"></span>             <span style="color:#6272a4">// move the left pointer until the sum becomes less than the target
+</span><span style="color:#6272a4"></span>             <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">(</span>sum <span style="color:#ff79c6">&gt;=</span> target<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+                 <span style="color:#6272a4">// Update the minimum length
+</span><span style="color:#6272a4"></span>                 minLen <span style="color:#ff79c6">=</span> Math<span style="color:#ff79c6">.</span><span style="color:#50fa7b">min</span><span style="color:#ff79c6">(</span>minLen<span style="color:#ff79c6">,</span> right <span style="color:#ff79c6">-</span> left <span style="color:#ff79c6">+</span> 1<span style="color:#ff79c6">);</span>
+
+                 <span style="color:#6272a4">// Remove the leftmost number from the sum
+</span><span style="color:#6272a4"></span>                 sum <span style="color:#ff79c6">-=</span> nums<span style="color:#ff79c6">[</span>left<span style="color:#ff79c6">];</span>
+
+                 <span style="color:#6272a4">// Move the left pointer to the next index
+</span><span style="color:#6272a4"></span>                 left<span style="color:#ff79c6">++;</span>
+             <span style="color:#ff79c6">}</span>
+
+             <span style="color:#6272a4">// Move the right pointer to the next index
+</span><span style="color:#6272a4"></span>             right<span style="color:#ff79c6">++;</span>
+         <span style="color:#ff79c6">}</span>
+
+         <span style="color:#6272a4">// Return 0 if the minimum length is not updated, otherwise return the minimum length
+</span><span style="color:#6272a4"></span>         <span style="color:#ff79c6">return</span> minLen <span style="color:#ff79c6">==</span> Integer<span style="color:#ff79c6">.</span><span style="color:#50fa7b">MAX_VALUE</span> <span style="color:#ff79c6">?</span> 0 <span style="color:#ff79c6">:</span> minLen<span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span>
+ <span style="color:#ff79c6">}</span>
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="862httpsleetcodecomproblemsshortest-subarray-with-sum-at-least-k"><a href="https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/">862</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">shortestSubarray</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]</span> nums<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> k<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#8be9fd">int</span> n <span style="color:#ff79c6">=</span> nums<span style="color:#ff79c6">.</span><span style="color:#50fa7b">length</span><span style="color:#ff79c6">;</span>
+    <span style="color:#8be9fd">long</span><span style="color:#ff79c6">[]</span> prefixSum <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#8be9fd">long</span><span style="color:#ff79c6">[</span>n <span style="color:#ff79c6">+</span> 1<span style="color:#ff79c6">];</span> <span style="color:#6272a4">// Prefix sum array to keep track of sums up to each index
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span> i <span style="color:#ff79c6">&lt;</span> n<span style="color:#ff79c6">;</span> i<span style="color:#ff79c6">++)</span> <span style="color:#ff79c6">{</span>
+        prefixSum<span style="color:#ff79c6">[</span>i <span style="color:#ff79c6">+</span> 1<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> prefixSum<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">+</span> nums<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">];</span>
+    <span style="color:#ff79c6">}</span>
+
+    <span style="color:#8be9fd">int</span> minLength <span style="color:#ff79c6">=</span> n <span style="color:#ff79c6">+</span> 1<span style="color:#ff79c6">;</span> <span style="color:#6272a4">// Initialize the minimum length to be larger than the input array size
+</span><span style="color:#6272a4"></span>    Deque<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">&gt;</span> deque <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> LinkedList<span style="color:#ff79c6">&lt;&gt;();</span> <span style="color:#6272a4">// Deque to keep track of indices
+</span><span style="color:#6272a4"></span>
+    <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span> i <span style="color:#ff79c6">&lt;=</span> n<span style="color:#ff79c6">;</span> i<span style="color:#ff79c6">++)</span> <span style="color:#ff79c6">{</span> <span style="color:#6272a4">// Iterate through the prefix sum array
+</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">(!</span>deque<span style="color:#ff79c6">.</span><span style="color:#50fa7b">isEmpty</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">&amp;&amp;</span> prefixSum<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">-</span> prefixSum<span style="color:#ff79c6">[</span>deque<span style="color:#ff79c6">.</span><span style="color:#50fa7b">peekFirst</span><span style="color:#ff79c6">()]</span> <span style="color:#ff79c6">&gt;=</span> k<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+            <span style="color:#6272a4">// If the current prefix sum minus the prefix sum at the front of the deque is greater than or equal to k,
+</span><span style="color:#6272a4"></span>            <span style="color:#6272a4">// it means we found a subarray that satisfies the condition, so we update the minimum length accordingly
+</span><span style="color:#6272a4"></span>            minLength <span style="color:#ff79c6">=</span> Math<span style="color:#ff79c6">.</span><span style="color:#50fa7b">min</span><span style="color:#ff79c6">(</span>minLength<span style="color:#ff79c6">,</span> i <span style="color:#ff79c6">-</span> deque<span style="color:#ff79c6">.</span><span style="color:#50fa7b">pollFirst</span><span style="color:#ff79c6">());</span>
+        <span style="color:#ff79c6">}</span>
+
+        <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">(!</span>deque<span style="color:#ff79c6">.</span><span style="color:#50fa7b">isEmpty</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">&amp;&amp;</span> prefixSum<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">&lt;=</span> prefixSum<span style="color:#ff79c6">[</span>deque<span style="color:#ff79c6">.</span><span style="color:#50fa7b">peekLast</span><span style="color:#ff79c6">()])</span> <span style="color:#ff79c6">{</span>
+            <span style="color:#6272a4">// This loop removes indices from the back of the deque as long as the prefix sum at the current index
+</span><span style="color:#6272a4"></span>            <span style="color:#6272a4">// is less than or equal to the prefix sum at the back of the deque. This helps maintain a monotonic
+</span><span style="color:#6272a4"></span>            <span style="color:#6272a4">// increasing deque.
+</span><span style="color:#6272a4"></span>            deque<span style="color:#ff79c6">.</span><span style="color:#50fa7b">pollLast</span><span style="color:#ff79c6">();</span>
+        <span style="color:#ff79c6">}</span>
+
+        deque<span style="color:#ff79c6">.</span><span style="color:#50fa7b">addLast</span><span style="color:#ff79c6">(</span>i<span style="color:#ff79c6">);</span> <span style="color:#6272a4">// Add the current index to the deque
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">}</span>
+
+    <span style="color:#ff79c6">return</span> minLength <span style="color:#ff79c6">==</span> n <span style="color:#ff79c6">+</span> 1 <span style="color:#ff79c6">?</span> <span style="color:#ff79c6">-</span>1 <span style="color:#ff79c6">:</span> minLength<span style="color:#ff79c6">;</span> <span style="color:#6272a4">// If no subarray satisfies the condition, return -1
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">}</span>
+
+<span style="color:#ff79c6">}</span>   
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="340httpsleetcodecomproblemslongest-substring-with-at-most-k-distinct-characters"><a href="https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/">340</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">  <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+      <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">lengthOfLongestSubstringKDistinct</span><span style="color:#ff79c6">(</span>String s<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> k<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+          <span style="color:#8be9fd">int</span> n <span style="color:#ff79c6">=</span> s<span style="color:#ff79c6">.</span><span style="color:#50fa7b">length</span><span style="color:#ff79c6">();</span>
+          <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>n <span style="color:#ff79c6">*</span> k <span style="color:#ff79c6">==</span> 0<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">return</span> 0<span style="color:#ff79c6">;</span>
+          <span style="color:#8be9fd">int</span> left <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">,</span> right <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span>
+          Map<span style="color:#ff79c6">&lt;</span>Character<span style="color:#ff79c6">,</span> Integer<span style="color:#ff79c6">&gt;</span> hashmap <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> HashMap<span style="color:#ff79c6">&lt;&gt;();</span>
+          <span style="color:#8be9fd">int</span> max_len <span style="color:#ff79c6">=</span> 1<span style="color:#ff79c6">;</span>
+
+          <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">(</span>right <span style="color:#ff79c6">&lt;</span> n<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+              <span style="color:#6272a4">// add new character and move right pointer
+</span><span style="color:#6272a4"></span>              hashmap<span style="color:#ff79c6">.</span><span style="color:#50fa7b">put</span><span style="color:#ff79c6">(</span>s<span style="color:#ff79c6">.</span><span style="color:#50fa7b">charAt</span><span style="color:#ff79c6">(</span>right<span style="color:#ff79c6">),</span> right<span style="color:#ff79c6">++);</span>
+
+              <span style="color:#6272a4">// if number of distinct characters exceeds k, remove the leftmost character
+</span><span style="color:#6272a4"></span>              <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>hashmap<span style="color:#ff79c6">.</span><span style="color:#50fa7b">size</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">&gt;</span> k<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+                  <span style="color:#8be9fd">int</span> min_idx <span style="color:#ff79c6">=</span> Collections<span style="color:#ff79c6">.</span><span style="color:#50fa7b">min</span><span style="color:#ff79c6">(</span>hashmap<span style="color:#ff79c6">.</span><span style="color:#50fa7b">values</span><span style="color:#ff79c6">());</span>
+                  hashmap<span style="color:#ff79c6">.</span><span style="color:#50fa7b">remove</span><span style="color:#ff79c6">(</span>s<span style="color:#ff79c6">.</span><span style="color:#50fa7b">charAt</span><span style="color:#ff79c6">(</span>min_idx<span style="color:#ff79c6">));</span>
+                  left <span style="color:#ff79c6">=</span> min_idx <span style="color:#ff79c6">+</span> 1<span style="color:#ff79c6">;</span>
+              <span style="color:#ff79c6">}</span>
+
+              <span style="color:#6272a4">// update maximum length
+</span><span style="color:#6272a4"></span>              max_len <span style="color:#ff79c6">=</span> Math<span style="color:#ff79c6">.</span><span style="color:#50fa7b">max</span><span style="color:#ff79c6">(</span>max_len<span style="color:#ff79c6">,</span> right <span style="color:#ff79c6">-</span> left<span style="color:#ff79c6">);</span>
+          <span style="color:#ff79c6">}</span>
+
+          <span style="color:#ff79c6">return</span> max_len<span style="color:#ff79c6">;</span>
+      <span style="color:#ff79c6">}</span>
+  <span style="color:#ff79c6">}</span>
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="3httpsleetcodecomproblemslongest-substring-without-repeating-characters"><a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/">3</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">  <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+      <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">lengthOfLongestSubstring</span><span style="color:#ff79c6">(</span>String s<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+          <span style="color:#6272a4">// Initialize variables
+</span><span style="color:#6272a4"></span>          <span style="color:#8be9fd">int</span> n <span style="color:#ff79c6">=</span> s<span style="color:#ff79c6">.</span><span style="color:#50fa7b">length</span><span style="color:#ff79c6">();</span>
+          Set<span style="color:#ff79c6">&lt;</span>Character<span style="color:#ff79c6">&gt;</span> set <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> HashSet<span style="color:#ff79c6">&lt;&gt;();</span>
+          <span style="color:#8be9fd">int</span> left <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">,</span> right <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">,</span> maxLen <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span>
+
+          <span style="color:#6272a4">// Use sliding window technique
+</span><span style="color:#6272a4"></span>          <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">(</span>left <span style="color:#ff79c6">&lt;</span> n <span style="color:#ff79c6">&amp;&amp;</span> right <span style="color:#ff79c6">&lt;</span> n<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+              <span style="color:#6272a4">// If the current character is not in the set, add it to the set and move the right pointer
+</span><span style="color:#6272a4"></span>              <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(!</span>set<span style="color:#ff79c6">.</span><span style="color:#50fa7b">contains</span><span style="color:#ff79c6">(</span>s<span style="color:#ff79c6">.</span><span style="color:#50fa7b">charAt</span><span style="color:#ff79c6">(</span>right<span style="color:#ff79c6">)))</span> <span style="color:#ff79c6">{</span>
+                  set<span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span>s<span style="color:#ff79c6">.</span><span style="color:#50fa7b">charAt</span><span style="color:#ff79c6">(</span>right<span style="color:#ff79c6">++));</span>
+                  maxLen <span style="color:#ff79c6">=</span> Math<span style="color:#ff79c6">.</span><span style="color:#50fa7b">max</span><span style="color:#ff79c6">(</span>maxLen<span style="color:#ff79c6">,</span> right <span style="color:#ff79c6">-</span> left<span style="color:#ff79c6">);</span> <span style="color:#6272a4">// Update the maximum length
+</span><span style="color:#6272a4"></span>              <span style="color:#ff79c6">}</span>
+              <span style="color:#6272a4">// If the current character is in the set, remove the leftmost character from the set and move the left pointer
+</span><span style="color:#6272a4"></span>              <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
+                  set<span style="color:#ff79c6">.</span><span style="color:#50fa7b">remove</span><span style="color:#ff79c6">(</span>s<span style="color:#ff79c6">.</span><span style="color:#50fa7b">charAt</span><span style="color:#ff79c6">(</span>left<span style="color:#ff79c6">++));</span>
+              <span style="color:#ff79c6">}</span>
+          <span style="color:#ff79c6">}</span>
+
+          <span style="color:#ff79c6">return</span> maxLen<span style="color:#ff79c6">;</span>
+      <span style="color:#ff79c6">}</span>
+  <span style="color:#ff79c6">}</span>
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="424httpsleetcodecomproblemslongest-repeating-character-replacement"><a href="https://leetcode.com/problems/longest-repeating-character-replacement/">424</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">  <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+      <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">characterReplacement</span><span style="color:#ff79c6">(</span>String s<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> k<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+          <span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]</span> count <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#8be9fd">int</span><span style="color:#ff79c6">[</span>26<span style="color:#ff79c6">];</span> <span style="color:#6272a4">// count the frequency of each character in the current window
+</span><span style="color:#6272a4"></span>          <span style="color:#8be9fd">int</span> maxCount <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span> <span style="color:#6272a4">// the max frequency of a single character in the current window
+</span><span style="color:#6272a4"></span>          <span style="color:#8be9fd">int</span> start <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span> <span style="color:#6272a4">// the start index of the current window
+</span><span style="color:#6272a4"></span>          <span style="color:#8be9fd">int</span> maxLength <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span> <span style="color:#6272a4">// the max length of the substring with repeating characters
+</span><span style="color:#6272a4"></span>          <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> end <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span> end <span style="color:#ff79c6">&lt;</span> s<span style="color:#ff79c6">.</span><span style="color:#50fa7b">length</span><span style="color:#ff79c6">();</span> end<span style="color:#ff79c6">++)</span> <span style="color:#ff79c6">{</span>
+              <span style="color:#8be9fd">char</span> ch <span style="color:#ff79c6">=</span> s<span style="color:#ff79c6">.</span><span style="color:#50fa7b">charAt</span><span style="color:#ff79c6">(</span>end<span style="color:#ff79c6">);</span>
+              count<span style="color:#ff79c6">[</span>ch <span style="color:#ff79c6">-</span> <span style="color:#f1fa8c">&#39;A&#39;</span><span style="color:#ff79c6">]++;</span>
+              maxCount <span style="color:#ff79c6">=</span> Math<span style="color:#ff79c6">.</span><span style="color:#50fa7b">max</span><span style="color:#ff79c6">(</span>maxCount<span style="color:#ff79c6">,</span> count<span style="color:#ff79c6">[</span>ch <span style="color:#ff79c6">-</span> <span style="color:#f1fa8c">&#39;A&#39;</span><span style="color:#ff79c6">]);</span>
+              <span style="color:#6272a4">// if the number of characters that need to be changed (k) is less than the length of the window minus the max count, we can still make all the characters in the window the same by replacing some of them
+</span><span style="color:#6272a4"></span>              <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">(</span>end <span style="color:#ff79c6">-</span> start <span style="color:#ff79c6">+</span> 1 <span style="color:#ff79c6">-</span> maxCount <span style="color:#ff79c6">&gt;</span> k<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+                  <span style="color:#8be9fd">char</span> leftChar <span style="color:#ff79c6">=</span> s<span style="color:#ff79c6">.</span><span style="color:#50fa7b">charAt</span><span style="color:#ff79c6">(</span>start<span style="color:#ff79c6">);</span>
+                  count<span style="color:#ff79c6">[</span>leftChar <span style="color:#ff79c6">-</span> <span style="color:#f1fa8c">&#39;A&#39;</span><span style="color:#ff79c6">]--;</span>
+                  start<span style="color:#ff79c6">++;</span>
+              <span style="color:#ff79c6">}</span>
+              maxLength <span style="color:#ff79c6">=</span> Math<span style="color:#ff79c6">.</span><span style="color:#50fa7b">max</span><span style="color:#ff79c6">(</span>maxLength<span style="color:#ff79c6">,</span> end <span style="color:#ff79c6">-</span> start <span style="color:#ff79c6">+</span> 1<span style="color:#ff79c6">);</span> <span style="color:#6272a4">// update the max length
+</span><span style="color:#6272a4"></span>          <span style="color:#ff79c6">}</span>
+          <span style="color:#ff79c6">return</span> maxLength<span style="color:#ff79c6">;</span>
+      <span style="color:#ff79c6">}</span>
+  <span style="color:#ff79c6">}</span>
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="1004httpsleetcodecomproblemsmerge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/">1004</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">  <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+      <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">longestOnes</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]</span> nums<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> k<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+      <span style="color:#8be9fd">int</span> left <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span> <span style="color:#6272a4">// left pointer of the sliding window
+</span><span style="color:#6272a4"></span>      <span style="color:#8be9fd">int</span> right <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span> <span style="color:#6272a4">// right pointer of the sliding window
+</span><span style="color:#6272a4"></span>      <span style="color:#8be9fd">int</span> maxOnes <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span> <span style="color:#6272a4">// maximum number of consecutive ones seen so far
+</span><span style="color:#6272a4"></span>      <span style="color:#8be9fd">int</span> zeros <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span> <span style="color:#6272a4">// number of zeros seen in the current window so far
+</span><span style="color:#6272a4"></span>
+      <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">(</span>right <span style="color:#ff79c6">&lt;</span> nums<span style="color:#ff79c6">.</span><span style="color:#50fa7b">length</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+          <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>nums<span style="color:#ff79c6">[</span>right<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">==</span> 0<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span> <span style="color:#6272a4">// if the current number is zero
+</span><span style="color:#6272a4"></span>              zeros<span style="color:#ff79c6">++;</span> <span style="color:#6272a4">// increment the count of zeros
+</span><span style="color:#6272a4"></span>          <span style="color:#ff79c6">}</span>
+
+          <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">(</span>zeros <span style="color:#ff79c6">&gt;</span> k<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span> <span style="color:#6272a4">// if there are more than k zeros in the current window
+</span><span style="color:#6272a4"></span>              <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>nums<span style="color:#ff79c6">[</span>left<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">==</span> 0<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span> <span style="color:#6272a4">// if the leftmost number is zero
+</span><span style="color:#6272a4"></span>                  zeros<span style="color:#ff79c6">--;</span> <span style="color:#6272a4">// decrement the count of zeros
+</span><span style="color:#6272a4"></span>              <span style="color:#ff79c6">}</span>
+              left<span style="color:#ff79c6">++;</span> <span style="color:#6272a4">// move the left pointer to the right to shrink the window
+</span><span style="color:#6272a4"></span>          <span style="color:#ff79c6">}</span>
+
+          <span style="color:#6272a4">// update the maximum number of consecutive ones seen so far
+</span><span style="color:#6272a4"></span>          maxOnes <span style="color:#ff79c6">=</span> Math<span style="color:#ff79c6">.</span><span style="color:#50fa7b">max</span><span style="color:#ff79c6">(</span>maxOnes<span style="color:#ff79c6">,</span> right <span style="color:#ff79c6">-</span> left <span style="color:#ff79c6">+</span> 1<span style="color:#ff79c6">);</span>
+
+          right<span style="color:#ff79c6">++;</span> <span style="color:#6272a4">// move the right pointer to the right to expand the window
+</span><span style="color:#6272a4"></span>      <span style="color:#ff79c6">}</span>
+
+      <span style="color:#ff79c6">return</span> maxOnes<span style="color:#ff79c6">;</span> <span style="color:#6272a4">// return the maximum number of consecutive ones seen
+</span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">}</span>
+
+  <span style="color:#ff79c6">}</span>
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="567httpsleetcodecomproblemsmerge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/">567</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"></code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="438httpsleetcodecomproblemsmerge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/">438</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"></code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="76httpsleetcodecomproblemsmerge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/">76</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"></code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="1248httpsleetcodecomproblemsmerge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/">1248</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"></code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="1234httpsleetcodecomproblemsmerge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/">1234</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"></code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="930httpsleetcodecomproblemsmerge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/">930</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"></code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="904httpsleetcodecomproblemsmerge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/">904</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"></code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="2024httpsleetcodecomproblemsmerge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/">2024</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"></code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="713httpsleetcodecomproblemsmerge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/">713</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"></code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<h1 id="two-pointer">Two Pointer</h1>
+<h2 id="conditions-1">Conditions</h2>
+<ul>
+<li>sorted arrays (or LinkedLists) and need to find a set of elements that fulfill certain constraints</li>
+</ul>
+<h2 id="questions-1">Questions</h2>
+<ul>
+<li>
+<h3 id="167httpsleetcodecomproblemsmerge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/">167</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"> <span style="color:#6272a4">/**
+</span><span style="color:#6272a4"> * Definition for singly-linked list.
+</span><span style="color:#6272a4"> * public class ListNode {
+</span><span style="color:#6272a4"> *     int val;
+</span><span style="color:#6272a4"> *     ListNode next;
+</span><span style="color:#6272a4"> *     ListNode() {}
+</span><span style="color:#6272a4"> *     ListNode(int val) { this.val = val; }
+</span><span style="color:#6272a4"> *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+</span><span style="color:#6272a4"> * }
+</span><span style="color:#6272a4"> */</span>
+ <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+     <span style="color:#8be9fd;font-style:italic">public</span> ListNode <span style="color:#50fa7b">mergeTwoLists</span><span style="color:#ff79c6">(</span>ListNode list1<span style="color:#ff79c6">,</span> ListNode list2<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+     <span style="color:#6272a4">// Base case: if either list is null, return the other list
+</span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>list1 <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#ff79c6">return</span> list2<span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>list2 <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#ff79c6">return</span> list1<span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span>
+
+     <span style="color:#6272a4">// Recursive case: compare the values at the current nodes of both lists
+</span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>list1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">val</span> <span style="color:#ff79c6">&lt;</span> list2<span style="color:#ff79c6">.</span><span style="color:#50fa7b">val</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#6272a4">// If the value in l1 is smaller, merge the rest of l1 with the remaining nodes in l2
+</span><span style="color:#6272a4"></span>         list1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span> <span style="color:#ff79c6">=</span> mergeTwoLists<span style="color:#ff79c6">(</span>list1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span><span style="color:#ff79c6">,</span> list2<span style="color:#ff79c6">);</span>
+         <span style="color:#ff79c6">return</span> list1<span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#6272a4">// If the value in l2 is smaller, merge the rest of l2 with the remaining nodes in l1
+</span><span style="color:#6272a4"></span>         list2<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span> <span style="color:#ff79c6">=</span> mergeTwoLists<span style="color:#ff79c6">(</span>list1<span style="color:#ff79c6">,</span> list2<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span><span style="color:#ff79c6">);</span>
+         <span style="color:#ff79c6">return</span> list2<span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span> 
+     <span style="color:#ff79c6">}</span>
+ <span style="color:#ff79c6">}</span>
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="26httpsleetcodecomproblemsmerge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/">26</a></h3>
+</li>
+<li>
+<h3 id="977httpsleetcodecomproblemsmerge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/">977</a></h3>
+</li>
+<li>
+<h3 id="15httpsleetcodecomproblemsmerge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/">15</a></h3>
+</li>
+<li>
+<h3 id="16httpsleetcodecomproblemsmerge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/">16</a></h3>
+</li>
+<li>
+<h3 id="259httpsleetcodecomproblemsmerge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/">259</a></h3>
+</li>
+<li>
+<h3 id="75httpsleetcodecomproblemsmerge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/">75</a></h3>
+</li>
+<li>
+<h3 id="581httpsleetcodecomproblemsmerge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/">581</a></h3>
+</li>
+<li>
+<h3 id="80httpsleetcodecomproblemsmerge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/">80</a></h3>
+</li>
+<li>
+<h3 id="27httpsleetcodecomproblemsmerge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/">27</a></h3>
+</li>
+</ul>
+<h2 id="conclusion-1">Conclusion</h2>
+<h1 id="fast--slow-pointer">Fast &amp; Slow Pointer</h1>
+<h2 id="conditions-2">Conditions</h2>
+<ul>
+<li>Hare &amp; Tortoise algorithm (or Floyd&rsquo;s cycle-finding algorithm)</li>
+</ul>
+<h2 id="questions-2">Questions</h2>
+<ul>
+<li>
+<h3 id="141httpsleetcodecomproblemsmerge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/">141</a></h3>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"> <span style="color:#6272a4">/**
+</span><span style="color:#6272a4"> * Definition for singly-linked list.
+</span><span style="color:#6272a4"> * public class ListNode {
+</span><span style="color:#6272a4"> *     int val;
+</span><span style="color:#6272a4"> *     ListNode next;
+</span><span style="color:#6272a4"> *     ListNode() {}
+</span><span style="color:#6272a4"> *     ListNode(int val) { this.val = val; }
+</span><span style="color:#6272a4"> *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+</span><span style="color:#6272a4"> * }
+</span><span style="color:#6272a4"> */</span>
+ <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+     <span style="color:#8be9fd;font-style:italic">public</span> ListNode <span style="color:#50fa7b">mergeTwoLists</span><span style="color:#ff79c6">(</span>ListNode list1<span style="color:#ff79c6">,</span> ListNode list2<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+     <span style="color:#6272a4">// Base case: if either list is null, return the other list
+</span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>list1 <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#ff79c6">return</span> list2<span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>list2 <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#ff79c6">return</span> list1<span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span>
+
+     <span style="color:#6272a4">// Recursive case: compare the values at the current nodes of both lists
+</span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>list1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">val</span> <span style="color:#ff79c6">&lt;</span> list2<span style="color:#ff79c6">.</span><span style="color:#50fa7b">val</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#6272a4">// If the value in l1 is smaller, merge the rest of l1 with the remaining nodes in l2
+</span><span style="color:#6272a4"></span>         list1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span> <span style="color:#ff79c6">=</span> mergeTwoLists<span style="color:#ff79c6">(</span>list1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span><span style="color:#ff79c6">,</span> list2<span style="color:#ff79c6">);</span>
+         <span style="color:#ff79c6">return</span> list1<span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
+         <span style="color:#6272a4">// If the value in l2 is smaller, merge the rest of l2 with the remaining nodes in l1
+</span><span style="color:#6272a4"></span>         list2<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span> <span style="color:#ff79c6">=</span> mergeTwoLists<span style="color:#ff79c6">(</span>list1<span style="color:#ff79c6">,</span> list2<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span><span style="color:#ff79c6">);</span>
+         <span style="color:#ff79c6">return</span> list2<span style="color:#ff79c6">;</span>
+     <span style="color:#ff79c6">}</span> 
+     <span style="color:#ff79c6">}</span>
+ <span style="color:#ff79c6">}</span>
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<h3 id="142httpsleetcodecomproblemsmerge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/">142</a></h3>
+</li>
+<li>
+<h3 id="876httpsleetcodecomproblemsmerge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/">876</a></h3>
+</li>
+<li>
+<h3 id="234httpsleetcodecomproblemsmerge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/">234</a></h3>
+</li>
+<li>
+<h3 id="143httpsleetcodecomproblemsmerge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/">143</a></h3>
+</li>
+</ul>
+<h2 id="conclusion-2">Conclusion</h2>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p> 「少种的少收，多种的多收,捐款会鼓励作者多创作以及教会福音传播!!」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="https://weiyi-hu.com/"><img src="/img/favicon.png" /></a></span>
+        
+	        <p class="tip"><i></i><span>少种的少收，多种的多收,捐款会鼓励作者多创作以及教会福音传播!!</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2023/03/20/recursion/" data-toggle="tooltip" data-placement="top" title="刷题(三)">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+                
+
+                
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">                  
+                    
+                    <li>
+                        <a href="mailto:wy.hu@mail.utoronto.ca">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    <li>
+                        <a href="https://twitter.com/weiyi_hoo">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/weiyi.hu.3/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+
+		            
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/Waye">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/weiyihenryhu/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            <li>
+                <a target="_blank" href="https://www.instagram.com/wy_henry/">
+                    <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            
+            
+           
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy;  2023
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>
