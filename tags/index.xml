@@ -6,7 +6,16 @@
     <description>Recent content in Tags on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 Jul 2023 23:00:00 +0000</lastBuildDate><atom:link href="https://weiyi-hu.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Jul 2023 00:31:00 +0000</lastBuildDate><atom:link href="https://weiyi-hu.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DataBase</title>
+      <link>https://weiyi-hu.com/tags/database/</link>
+      <pubDate>Wed, 12 Jul 2023 00:31:00 +0000</pubDate>
+      
+      <guid>https://weiyi-hu.com/tags/database/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>FrontEnd</title>
       <link>https://weiyi-hu.com/tags/frontend/</link>

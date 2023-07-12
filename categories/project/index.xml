@@ -6,7 +6,34 @@
     <description>Recent content in Project on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 Jul 2023 23:00:00 +0000</lastBuildDate><atom:link href="https://weiyi-hu.com/categories/project/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Jul 2023 00:41:00 +0000</lastBuildDate><atom:link href="https://weiyi-hu.com/categories/project/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Block Chain Nano Project   </title>
+      <link>https://weiyi-hu.com/2023/07/12/blockchainnanodegree/</link>
+      <pubDate>Wed, 12 Jul 2023 00:41:00 +0000</pubDate>
+      
+      <guid>https://weiyi-hu.com/2023/07/12/blockchainnanodegree/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Big Data Nano Project   </title>
+      <link>https://weiyi-hu.com/2023/07/12/bigdatananodegree/</link>
+      <pubDate>Wed, 12 Jul 2023 00:39:00 +0000</pubDate>
+      
+      <guid>https://weiyi-hu.com/2023/07/12/bigdatananodegree/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GraphDB In Use   </title>
+      <link>https://weiyi-hu.com/2023/07/13/GraphDBUseCase/</link>
+      <pubDate>Wed, 12 Jul 2023 00:31:00 +0000</pubDate>
+      
+      <guid>https://weiyi-hu.com/2023/07/13/GraphDBUseCase/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>By the Stream App V2.0  </title>
       <link>https://weiyi-hu.com/2023/07/11/bythestreamv2/</link>
@@ -14,6 +41,17 @@
       
       <guid>https://weiyi-hu.com/2023/07/11/bythestreamv2/</guid>
       <description>HI</description>
+    </item>
+    
+    <item>
+      <title>ExtraCurriculars Coding Experience  </title>
+      <link>https://weiyi-hu.com/2023/06/01/extracurriculars/</link>
+      <pubDate>Thu, 01 Jun 2023 14:00:00 +0000</pubDate>
+      
+      <guid>https://weiyi-hu.com/2023/06/01/extracurriculars/</guid>
+      <description>Wells Fargo Task 1 tags: Data Modeling, Entity Relationship Diagramming, System Design
+Develop a data model for a new investment management system
+ The system will help manage multiple financial advisors’ clients. Financial advisors must be able to create, update, and remove clients. Each financial advisor can have numerous clients. Financial advisors will be using the system during standard business hours from 9 to 5 on weekdays. Each client will have a portfolio.</description>
     </item>
     
   </channel>
